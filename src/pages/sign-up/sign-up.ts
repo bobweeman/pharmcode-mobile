@@ -37,7 +37,6 @@ export class SignUpPage {
       email:[null,Validators.compose([Validators.required,Validators.email])],
       password:[null,Validators.compose([Validators.required,Validators.minLength(5)])],
       confirm_password:[null,Validators.required],
-      username:[null, Validators.compose([Validators.maxLength(30), Validators.required, this.checkUsername.bind(this)])]
     }, {
       // validation method
       validator: PasswordValidation.MatchPassword
@@ -51,7 +50,6 @@ export class SignUpPage {
     "email":"",
     "password":"",
     "confirm_password":"",
-    "username":""
   }
 
   // preparing user information for registration
@@ -60,7 +58,6 @@ export class SignUpPage {
     this.regUser.othernames = this.signupForm.controls.othernames.value;
     this.regUser.email = this.signupForm.controls.email.value;
     this.regUser.password = this.signupForm.controls.password.value;
-    this.regUser.username = this.signupForm.controls.username.value;
   }
 
   //user registration
@@ -77,25 +74,21 @@ export class SignUpPage {
       this.response = result;
       this.loader.dismissAll();
       let alert = this.alertCtrl.create({
-        title: 'Welcome to ServiceLink',
+        title: 'Welcome to Pharmcode',
         subTitle: 'Please login to continue',
         buttons: ['Ok']
       });
-      alert.present();
-      this.navCtrl.setRoot("SignInPage");
-
-    }).catch((error) => {
-      console.log(error);
-      let alert = this.alertCtrl.create({
-        title: 'Registration Failed',
-        subTitle: 'Please try again later',
-        buttons: ['Ok']
-      });
-      alert.present();
-      this.loader.dismissAll();
-
+        alert.present();
+        this.navCtrl.setRoot("SignInPage");
+      }).catch((error) => {
+        console.log(error);
+        let alert = this.alertCtrl.create({
+          title: 'Registration Failed',
+          subTitle: 'Please try again later',
+          buttons: ['Ok']
+        });
+          alert.present();
+          this.loader.dismissAll();
     });
-
   }
-
 }

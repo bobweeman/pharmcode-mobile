@@ -35,11 +35,11 @@ export class AuthServiceProvider {
   }
 
   // use this to log into the application
-    authenticate(endpoint, data) {
-      // send a  post request on a single resource
-      return this.http.post(this.oauth + endpoint + "/", data)
-        .catch(this.handleOopses);
-    }
+  authenticate(endpoint, data) {
+    // send a  post request on a single resource
+    return this.http.post(this.oauth + endpoint + "/", data)
+      .catch(this.handleOopses);
+  }
 
   // clear existing tokens
   // can also use this to logout
