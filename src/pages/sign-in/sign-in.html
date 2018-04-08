@@ -23,11 +23,11 @@
             <form [formGroup]='signinForm'>
 
               <ion-item>
-                <ion-label floating> Username</ion-label>
-                <ion-input type="text"  formControlName="username" [class.invalid]="!signinForm.controls.username.valid && (signinForm.controls.username.dirty || submitAttempt)"></ion-input>
+                <ion-label floating>Email</ion-label>
+                <ion-input [class.invalid]="!signupForm.controls.email.valid && (signupForm.controls.email.dirty || submitAttempt)" type="text" formControlName="email" ></ion-input>
               </ion-item>
-              <ion-item *ngIf="!signinForm.controls.username.valid && (signinForm.controls.username.dirty || submitAttempt)">
-                <p>Username is required</p>
+              <ion-item *ngIf="!signupForm.controls.email.valid  && (signupForm.controls.email.dirty || submitAttempt)">
+                  <p>Please provide a valid email.</p>
               </ion-item>
 
               <ion-item>
