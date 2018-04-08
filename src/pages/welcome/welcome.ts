@@ -1,10 +1,10 @@
-import { TabsPage } from './../tabs/tabs';
+import { SignUpPage } from './../sign-up/sign-up';
+import { SignInPage } from './../sign-in/sign-in';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FormBuilder, FormGroup } from '@angular/forms';
 
 /**
- * Generated class for the SignInPage page.
+ * Generated class for the WelcomePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -12,18 +12,17 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 @IonicPage()
 @Component({
-  selector: 'page-sign-in',
-  templateUrl: 'sign-in.html',
+  selector: 'page-welcome',
+  templateUrl: 'welcome.html',
 })
-export class SignInPage {
+export class WelcomePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SignInPage');
+    console.log('ionViewDidLoad WelcomePage');
   }
-
-
 
 }

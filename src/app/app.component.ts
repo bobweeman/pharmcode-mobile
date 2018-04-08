@@ -1,3 +1,5 @@
+import { WelcomePage } from './../pages/welcome/welcome';
+import { SignInPage } from './../pages/sign-in/sign-in';
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
