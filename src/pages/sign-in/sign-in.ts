@@ -1,3 +1,4 @@
+import { AuthProvider } from './../../providers/auth/auth';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -15,11 +16,22 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SignInPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private aka:AuthProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignInPage');
+  }
+
+  login={
+    email:'a@b.com',
+    password:'password'
+  }
+
+  popo(){
+      this.aka.authenticate('/oauth/token/',this.login).subscribe((data)=>{
+          console.log(data);
+      });
   }
 
 }
