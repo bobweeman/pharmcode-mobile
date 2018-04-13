@@ -14,7 +14,9 @@ export class AuthProvider {
     console.log('Hello AuthProvider Provider');
   }
 
-  private laravel = "http://127.0.0.1/api"
+  private laravel = "http://127.0.0.1:8000/api/"
+  private oauth = "http://127.0.0.1:8000/"
+
   // get single resource
   getSingle(endpoint,jwt){
   return  this.http.options(this.laravel+endpoint,{headers:{
@@ -25,7 +27,7 @@ export class AuthProvider {
 
   // get single resource
   authenticate(endpoint,data) {
-     return this.http.post(this.laravel+endpoint,data);
+     return this.http.post(this.oauth+endpoint,data);
   }
 
 

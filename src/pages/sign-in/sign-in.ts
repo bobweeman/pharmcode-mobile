@@ -24,12 +24,19 @@ export class SignInPage {
   }
 
   login={
-    email:'a@b.com',
-    password:'password'
+    form_params:{
+      email: 'a@b.com',
+      password: 'password',
+      client_id: 1,
+      client_secret: '8YdtlqE4c4Mfk9Vosduz5jUck3hWhhSXplV0oCDL',
+      grant_type:'password',
+      scope:''
+    }
+   
   }
 
   popo(){
-      this.aka.authenticate('/oauth/token/',this.login).subscribe((data)=>{
+      this.aka.authenticate('oauth/token',this.login).subscribe((data)=>{
           console.log(data);
       });
   }
