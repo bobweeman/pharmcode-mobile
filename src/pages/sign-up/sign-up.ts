@@ -70,13 +70,13 @@ export class SignUpPage {
     this.submitAttempt = true;
     this.prepareData();
 
-    this.auth.postStore("user", this.regUser, localStorage.getItem('token')).then((result) => {
-      this.response = result;
-      this.loader.dismissAll();
-      let alert = this.alertCtrl.create({
-        title: 'Welcome to Pharmcode',
-        subTitle: 'Please login to continue',
-        buttons: ['Ok']
+  this.auth.postStore("user", this.regUser, localStorage.getItem('token')).then((result) => {
+    this.response = result;
+    this.loader.dismissAll();
+    let alert = this.alertCtrl.create({
+      title: 'Welcome to Pharmcode',
+      subTitle: 'Please login to continue',
+      buttons: ['Ok']
       });
         alert.present();
         this.navCtrl.setRoot("SignInPage");
@@ -86,9 +86,9 @@ export class SignUpPage {
           title: 'Registration Failed',
           subTitle: 'Please try again later',
           buttons: ['Ok']
-        });
-          alert.present();
-          this.loader.dismissAll();
+      });
+        alert.present();
+        this.loader.dismissAll();
     });
   }
 }

@@ -58,28 +58,26 @@ export class SignInPage {
   signin() {
     this.signing=true;
     this.authenticate();
-    this.auth.postStore("authenticate", this.credentials, localStorage.getItem('token')).then((result) => {
+    this.auth.postStore("authenticate", this.credentials, localStorage.getItem('token')).subscribe((result) => {
       this.response = result['token'];
       if (this.response != null || this.response != undefined) {
         localStorage.setItem('token', this.response)
         localStorage.setItem('firstTimer','0');
         
         setTimeout(() => {
-          this.setUserId();
+          this.setUserID();
           this.setUserAccessLevel()
           this.signing = false;
           this.navCtrl.setRoot("TabsPage");
         }, 3000)
 
-
       } else {
         this.presentToast('Invalid username or password combination');
         this.signing = false;
-
         // this.loading.dismissAll();
       }
 
-    }).catch((error) => {
+    },(error) => {
       if (error.status == 401) {
         this.presentToast('Invalid username or password combination');
         this.signing = false;
@@ -91,22 +89,21 @@ export class SignInPage {
         this.presentToast("Service not available. Please try again later");
         this.signing = false;
       }
-
     });
   }
 
-  setUserId() {//put logged in user id in localstorage
-    this.auth.getAll('authenticate', localStorage.getItem('token')).then((response) => {
+  setUserID() {//put logged in user id in localstorage
+    this.auth.getAll('authenticate', localStorage.getItem('token')).subscribe((response) => {
       localStorage.setItem('logUserId', response['user']['id']);  
-    }).catch((error) => { 
+    },(error)=>{
       console.log(error);
     });
   }
 
   setUserAccessLevel() {//put logged in user access_level in localstorage
-    this.auth.getSingle('access_level',localStorage.getItem('logUserId'),localStorage.getItem('token')).then((response) => {
+    this.auth.getSingle('access_level',localStorage.getItem('logUserId'),localStorage.getItem('token')).subscribe((response) => {
       localStorage.setItem('logUserAccessLevel', response['data']['uac_id']);
-    }).catch((error) => {
+    },(error)=>{
       console.log(error);
     });
   }
@@ -149,6 +146,9 @@ export class SignInPage {
 
   }
 
+  higherAccess(){
+    this.navCtrl.push("HigherAccessPage");
+  }
 
   presentToast(message: string) {
     let toast = this.toastCtrl.create({
