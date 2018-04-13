@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { WelcomePage } from './../pages/welcome/welcome';
 import { SignInPage } from './../pages/sign-in/sign-in';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,7 +12,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { AuthProvider } from '../providers/auth/auth';
+import { SignUpPage } from '../pages/sign-up/sign-up';
+import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 
 @NgModule({
   declarations: [
@@ -21,11 +22,12 @@ import { AuthProvider } from '../providers/auth/auth';
     ContactPage,
     HomePage,
     TabsPage,
-    SignInPage
+    SignInPage,
+    SignUpPage,
+    WelcomePage
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -35,12 +37,15 @@ import { AuthProvider } from '../providers/auth/auth';
     ContactPage,
     HomePage,
     TabsPage,
-    SignInPage
+    SignInPage,
+    SignUpPage,
+    WelcomePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthProvider  ]
+    AuthServiceProvider
+  ]
 })
 export class AppModule {}
