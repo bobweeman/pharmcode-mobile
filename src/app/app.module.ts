@@ -1,3 +1,4 @@
+import { DashboardPage } from './../pages/dashboard/dashboard';
 import { WelcomePage } from './../pages/welcome/welcome';
 import { SignInPage } from './../pages/sign-in/sign-in';
 import { NgModule, ErrorHandler } from '@angular/core';
@@ -25,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     TabsPage,
     SignInPage,
     SignUpPage,
-    WelcomePage
+    WelcomePage,
+    DashboardPage
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,8 @@ import { HttpClientModule } from '@angular/common/http';
     TabsPage,
     SignInPage,
     SignUpPage,
-    WelcomePage
+    WelcomePage,
+    DashboardPage
   ],
   providers: [
     StatusBar,

@@ -1,6 +1,7 @@
+import { DashboardPage } from './../dashboard/dashboard';
 import { TabsPage } from './../tabs/tabs';
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -23,7 +24,9 @@ export class SignInPage implements OnInit {
   acc_lvl: boolean = false;
   signing: boolean = false;
 
-  constructor(private auth: AuthServiceProvider,private navCtrl:NavController) {
+  constructor(private auth: AuthServiceProvider,
+    private navCtrl:NavController,
+  private toaster:ToastController) {
   }
 
   ngOnInit(){
@@ -64,9 +67,32 @@ export class SignInPage implements OnInit {
   signin(){
       this.buildCredentials();
       this.auth.authenticate('oauth/token',this.loginData).subscribe((data)=>{
-          // this.navCtrl.setRoot
+        localStorage.setItem('jwt',data['access_token']);
+        localStorage.setItem('jwt_expiry',data['expires_in']);
+        localStorage.setItem('jwt_refresh',data['refresh_token']);
+        this.navCtrl.setRoot(DashboardPage);
       },error=>{
-        console.log(error);
+        console.log(error.status);
+        if(error.status===400){
+          console.log('yolo');
+          let message=this.toaster.create({
+            message: 'Please fill the form',
+            duration:8000,
+            dismissOnPageChange:true,
+            position:'top'
+          });
+          message.present();  
+        }
+        if (error.status === 401) {
+          console.log('yolo');
+          let message = this.toaster.create({
+            message: 'Invalid username / password combination',
+            duration: 8000,
+            dismissOnPageChange: true,
+            position: 'top'
+          });
+          message.present();
+        }
       });
   }
 
