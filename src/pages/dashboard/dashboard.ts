@@ -1,3 +1,6 @@
+import { SettingsPage } from './../settings/settings';
+import { OrdersPage } from './../orders/orders';
+import { StockPage } from './../stock/stock';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -14,6 +17,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'dashboard.html',
 })
 export class DashboardPage {
+
+  tab1Root = StockPage;
+  tab2Root = OrdersPage;
+  tab3Root = SettingsPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
