@@ -20,9 +20,13 @@ export class AuthServiceProvider {
 
   private server = "http://localhost:8000/api/";
   private oauth = "http://localhost:8000/";
-
+  
   constructor(public http: HttpClient) {
 
+  }
+
+  doRegistration(endpoint,data){
+    return this.http.post(this.server + endpoint, data);
   }
 
   getAll(endpoint,jwt){

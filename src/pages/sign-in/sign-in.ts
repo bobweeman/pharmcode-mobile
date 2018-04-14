@@ -1,3 +1,4 @@
+import { SignUpPage } from './../sign-up/sign-up';
 import { DashboardPage } from './../dashboard/dashboard';
 import { TabsPage } from './../tabs/tabs';
 import { Component, OnInit } from '@angular/core';
@@ -42,6 +43,8 @@ export class SignInPage implements OnInit {
 
   // sign-up page
   signUp(){
+    console.log('yolo');
+    this.navCtrl.push(SignUpPage);
   }
 
 
@@ -51,7 +54,7 @@ export class SignInPage implements OnInit {
       username: '',
       password: '',
       client_id: '2',
-      client_secret: 'wGxuM3gCh8WUO7QwK0RvPsnFEnNEeDPuskbJeS7V',
+      client_secret: 'Jfv29g1dYUvy09RYQKM7zKO1NjjCfclLYxRjeu2O',
       grant_type:'password',
       scope:''
     
