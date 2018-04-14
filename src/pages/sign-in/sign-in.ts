@@ -1,7 +1,8 @@
 import { TabsPage } from './../tabs/tabs';
 import { Component, OnInit } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 /**
@@ -22,12 +23,19 @@ export class SignInPage implements OnInit {
   acc_lvl: boolean = false;
   signing: boolean = false;
 
-  constructor(private auth: AuthServiceProvider) {
+  constructor(private auth: AuthServiceProvider,private navCtrl:NavController) {
   }
 
   ngOnInit(){
-    this.popo();
   }
+
+
+  // creating a sign in form
+  public loginForm = new FormGroup({
+    email: new FormControl(null,Validators.compose([Validators.required])),
+    password: new FormControl(null,Validators.compose([Validators.required,Validators.min(5)])),
+
+  });
 
   // sign-up page
   signUp(){
@@ -35,10 +43,10 @@ export class SignInPage implements OnInit {
 
 
  
-  login={
+  loginData={
    
-      username: 'a@b.com',
-      password: 'password',
+      username: '',
+      password: '',
       client_id: '2',
       client_secret: 'wGxuM3gCh8WUO7QwK0RvPsnFEnNEeDPuskbJeS7V',
       grant_type:'password',
@@ -47,9 +55,16 @@ export class SignInPage implements OnInit {
    
   }
 
-  popo(){
-      this.auth.authenticate('oauth/token',this.login).subscribe((data)=>{
-          console.log(data);
+  buildCredentials(){
+    this.loginData.username = this.loginForm.controls['email'].value;
+    this.loginData.password = this.loginForm.controls['password'].value;
+
+  }
+
+  signin(){
+      this.buildCredentials();
+      this.auth.authenticate('oauth/token',this.loginData).subscribe((data)=>{
+          // this.navCtrl.setRoot
       },error=>{
         console.log(error);
       });
