@@ -51,10 +51,10 @@ export class SignInPage implements OnInit {
  
   loginData={
    
-      username: '',
+      email: '',
       password: '',
       client_id: '2',
-      client_secret: 'TwAWweYlVbXBnGjnzsg4YJvIcsKa20CJ8Yu8STG2',
+      client_secret: 'SAAOJ7EmMhzvDGH5TNviYpY4znrGYaWJZh3USqAN',
       grant_type:'password',
       scope:''
     
@@ -62,7 +62,7 @@ export class SignInPage implements OnInit {
   }
 
   buildCredentials(){
-    this.loginData.username = this.loginForm.controls['email'].value;
+    this.loginData.email = this.loginForm.controls['email'].value;
     this.loginData.password = this.loginForm.controls['password'].value;
 
   }
