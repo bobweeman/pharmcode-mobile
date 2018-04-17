@@ -7,12 +7,44 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Stock</ion-title>
+    <ion-title>My Stock</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+    <ion-fab bottom right>
+        <button ion-fab mini (click)='stockShop()'><ion-icon name="add-circle"></ion-icon></button>
+      </ion-fab>
+    
+      <div *ngIf="showCards" >
+        <ion-list *ngFor="let item of stock" >
+            <ion-item-sliding>
+              <ion-item>
+                  <ion-thumbnail item-start>
+                      <img src="../../assets/item.jpg">
+                  </ion-thumbnail>
+                  <h2>{{item?.name}}</h2>
+                  <p>{{item?.price}}</p>
+                  <p>{{item?.quantity}} in stock</p>
+              </ion-item>
+
+              <ion-item-options side="left">
+                <button ion-button (click)='update(item?.id)' color="secondary">
+                  <ion-icon name="cloud-upload"></ion-icon>
+                  Update
+                </button>
+              </ion-item-options>
+              <ion-item-options side="right">
+                <button ion-button (click)='view(item?.id)' color="primary">
+                  <ion-icon name="eye"></ion-icon>
+                  More
+                </button>
+              </ion-item-options>
+            </ion-item-sliding>
+          </ion-list>
+        </div>  
 
 </ion-content>

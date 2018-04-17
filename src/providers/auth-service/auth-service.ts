@@ -1,13 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AppError } from '../../pages/common/app-error';
-import { Observable } from 'rxjs/observable';
-import { NotFoundError } from '../../pages/common/not-found-error';
-import { BadInput } from '../../pages/common/bad-input';
-import { Unauthorised } from '../../pages/common/unauthorised';
-import { ConnectionRefused } from '../../pages/common/connection-refused';
-// import 'rxjs/add/operator/catch';
-// import 'rxjs/add/observable/throw';
+import { ToastController, LoadingController } from 'ionic-angular';
 
 /*
   Generated class for the AuthServiceProvider provider.
@@ -21,7 +14,7 @@ export class AuthServiceProvider {
   private server = "http://localhost:8000/api/";
   private oauth = "http://localhost:8000/";
   
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, private loader:LoadingController, public toastCtrl:ToastController,) {
 
   }
 
@@ -91,22 +84,5 @@ export class AuthServiceProvider {
     config.append('Authorization', 'Bearer ' + jwt);
     return this.http.delete(this.server + endpoint + "/" + id, { headers: config });
   }
-
-  // // error handling method
-  // private handleOopses(error:Response){
-  //   if (error.status === 400) {
-  //     return Observable.throw(new BadInput(error.json()));
-  //   }
-  //   if (error.status === 401) {
-  //     return Observable.throw(new Unauthorised());
-  //   }
-  //   if (error.status === 404) {
-  //     return Observable.throw(new NotFoundError());
-  //   }
-  //   if (error.status === 421) {
-  //     return Observable.throw(new ConnectionRefused());
-  //   }
-  //   return Observable.throw(new AppError(error));
-  // }
 
 }

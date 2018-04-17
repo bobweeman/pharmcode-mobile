@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ToastController } from 'ionic-angular';
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+import { AddStockPage } from '../add-stock/add-stock';
 
 /**
  * Generated class for the StockPage page.
@@ -15,11 +17,53 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class StockPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  stock:any;  
+  showCards:boolean=false;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AuthServiceProvider, private modalCtrl: ModalController, private toaster: ToastController) {
+    
+    // getting user stock
+    this.getUserStock();
+
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad StockPage');
+  // stocking shop page
+  stockShop(){
+    this.navCtrl.push(AddStockPage);
+  }
+
+  update(id){
+
+  }
+
+  view(id){
+
+  }
+
+  getUserStock(){
+    this.auth.getSingle('my_stock',localStorage.getItem('logUserId'),localStorage.getItem('jwt'))
+    .subscribe((response)=>{
+      if(response['data'].length == 0){
+        let message=this.toaster.create({
+          message: 'You have no items in stock',
+          duration:8000,
+          dismissOnPageChange:true,
+          position:'top'
+        });
+        message.present(); 
+      }else{
+        this.showCards=true;
+        this.stock = response['data'];
+      }
+    },(error=>{
+      let message = this.toaster.create({
+        message: 'Service not available',
+        duration: 8000,
+        dismissOnPageChange: true,
+        position: 'top'
+      });
+      message.present();
+    }));
   }
 
 }

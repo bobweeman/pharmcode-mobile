@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { StockPage } from '../stock/stock';
 
 
 /**
@@ -25,9 +26,8 @@ export class SignInPage implements OnInit {
   acc_lvl: boolean = false;
   signing: boolean = false;
 
-  constructor(private auth: AuthServiceProvider,
-    private navCtrl:NavController,
-  private toaster:ToastController) {
+  constructor(private auth: AuthServiceProvider, private navCtrl:NavController, private toaster:ToastController) {
+
   }
 
   ngOnInit(){
@@ -54,7 +54,7 @@ export class SignInPage implements OnInit {
       email: '',
       password: '',
       client_id: '2',
-      client_secret: 'SAAOJ7EmMhzvDGH5TNviYpY4znrGYaWJZh3USqAN',
+      client_secret: 'Jqur5rv2Am9WKNCfrTU9SLHGsuAR9aZYGdS3xKGQ',
       grant_type:'password',
       scope:''
     
@@ -97,6 +97,10 @@ export class SignInPage implements OnInit {
           message.present();
         }
       });
+  }
+
+  stock(){
+    this.navCtrl.push(StockPage);
   }
 
 }
