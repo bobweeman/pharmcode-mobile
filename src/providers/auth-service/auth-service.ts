@@ -33,7 +33,10 @@ export class AuthServiceProvider {
   // use this to log into the application
   authenticate(endpoint, data) {
     // send a  post request on a single resource
-    return this.http.post(this.oauth+endpoint, data);
+    let config = new HttpHeaders();
+    config.append('Accept', 'application/json');
+    config.append('content-type', 'application/json');
+    return this.http.post(this.oauth + endpoint, data, { headers: config })
   }
 
   // clear existing tokens
