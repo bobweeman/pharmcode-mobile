@@ -51,7 +51,7 @@ export class SignInPage implements OnInit {
  
   loginData={
    
-      email: '',
+      username: '',
       password: '',
       client_id: '2',
       client_secret: 'Jqur5rv2Am9WKNCfrTU9SLHGsuAR9aZYGdS3xKGQ',
@@ -62,13 +62,14 @@ export class SignInPage implements OnInit {
   }
 
   buildCredentials(){
-    this.loginData.email = this.loginForm.controls['email'].value;
+    this.loginData.username = this.loginForm.controls['email'].value;
     this.loginData.password = this.loginForm.controls['password'].value;
 
   }
 
   signin(){
       this.buildCredentials();
+      console.log(this.loginData);
       this.auth.authenticate('oauth/token',this.loginData).subscribe((data)=>{
         localStorage.setItem('jwt',data['access_token']);
         localStorage.setItem('jwt_expiry',data['expires_in']);
