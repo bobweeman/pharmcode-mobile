@@ -54,7 +54,7 @@ export class SignInPage implements OnInit {
       username: '',
       password: '',
       client_id: '2',
-      client_secret: 'TwAWweYlVbXBnGjnzsg4YJvIcsKa20CJ8Yu8STG2',
+      client_secret: 'rBznq4EzBrRyiSee6Ph95u7tbissDnRUt6cRipFK',
       grant_type:'password',
       scope:''
     
