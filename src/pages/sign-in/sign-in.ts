@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { StockPage } from '../stock/stock';
 
 
 /**
@@ -25,9 +26,8 @@ export class SignInPage implements OnInit {
   acc_lvl: boolean = false;
   signing: boolean = false;
 
-  constructor(private auth: AuthServiceProvider,
-    private navCtrl:NavController,
-  private toaster:ToastController) {
+  constructor(private auth: AuthServiceProvider, private navCtrl:NavController, private toaster:ToastController) {
+
   }
 
   ngOnInit(){
@@ -54,7 +54,11 @@ export class SignInPage implements OnInit {
       username: '',
       password: '',
       client_id: '2',
+<<<<<<< HEAD
       client_secret: 'rBznq4EzBrRyiSee6Ph95u7tbissDnRUt6cRipFK',
+=======
+    client_secret: 'TwAWweYlVbXBnGjnzsg4YJvIcsKa20CJ8Yu8STG2',
+>>>>>>> dev-akrong
       grant_type:'password',
       scope:''
     
@@ -69,6 +73,7 @@ export class SignInPage implements OnInit {
 
   signin(){
       this.buildCredentials();
+      console.log(this.loginData);
       this.auth.authenticate('oauth/token',this.loginData).subscribe((data)=>{
         localStorage.setItem('jwt',data['access_token']);
         localStorage.setItem('jwt_expiry',data['expires_in']);
@@ -97,6 +102,10 @@ export class SignInPage implements OnInit {
           message.present();
         }
       });
+  }
+
+  stock(){
+    this.navCtrl.push(StockPage);
   }
 
 }

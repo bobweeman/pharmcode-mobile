@@ -1,0 +1,74 @@
+<!--
+  Generated template for the AddStockPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>New Product</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <form [formGroup]='stockForm'>
+        <!-- <img src="{{pathForImage(lastImage)}}" class="ppic" [hidden]="lastImage === null"> -->
+        
+        <ion-fab top right>
+          <button ion-fab mini (click)="presentActionSheet()" >
+            <ion-icon name="camera"></ion-icon>
+          </button>
+        </ion-fab>
+        <ion-item>
+          <ion-label floating>Product name:</ion-label>
+          <ion-input [class.invalid]="!stockForm.controls.name.valid && (stockForm.controls.name.dirty || submitAttempt)" type="text" formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!stockForm.controls.name.valid  && (stockForm.controls.name.dirty || submitAttempt)">
+            <p>Please enter a valid surname.</p>
+      </ion-item>
+
+      <ion-item>
+          <ion-label floating>Quantity:</ion-label>
+          <ion-input [class.invalid]="!stockForm.controls.quantity.valid && (stockForm.controls.quantity.dirty || submitAttempt)" type="number" formControlName="quantity"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!stockForm.controls.quantity.valid  && (stockForm.controls.quantity.dirty || submitAttempt)">
+            <p>Please enter a valid surname.</p>
+      </ion-item>
+      <ion-item>
+          <ion-label floating>Currency</ion-label>
+          <ion-select formControlName="currency" [class.invalid]="!stockForm.controls.currency.valid && (stockForm.controls.currency.dirty || submitAttempt)"  >
+            <ion-option value="Ghs">Ghs</ion-option>
+            <ion-option value="$">$</ion-option>
+          </ion-select>
+        </ion-item>
+      <ion-item>
+          <ion-label floating>Price:</ion-label>
+          <ion-input [class.invalid]="!stockForm.controls.price.valid && (stockForm.controls.price.dirty || submitAttempt)" type="text" formControlName="price"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!stockForm.controls.price.valid  && (stockForm.controls.price.dirty || submitAttempt)">
+            <p>Please enter a valid surname.</p>
+      </ion-item>
+      <ion-item>
+          <ion-label floating>Description:</ion-label>
+          <ion-input [class.invalid]="!stockForm.controls.description.valid && (stockForm.controls.description.dirty || submitAttempt)" type="text" formControlName="description"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!stockForm.controls.description.valid  && (stockForm.controls.description.dirty || submitAttempt)">
+            <p>Please enter a valid surname.</p>
+      </ion-item>
+      <button ion-button block (click)="addToStock()" *ngIf="stockForm.valid"  >Add to Stock</button>
+      <ion-slides *ngIf="hasPhotos" class="itemImages" >
+          
+            <div  *ngFor="let photo of photos">
+              <ion-slide>
+                <img src="{{photo}}" />
+              </ion-slide>
+            </div>
+        
+      </ion-slides>
+  </form>
+
+</ion-content>

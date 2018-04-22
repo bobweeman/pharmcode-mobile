@@ -1,5 +1,6 @@
 import { OrdersPage } from './../pages/orders/orders';
 import { StockPage } from './../pages/stock/stock';
+import { AddStockPage } from './../pages/add-stock/add-stock';
 import { DashboardPage } from './../pages/dashboard/dashboard';
 import { WelcomePage } from './../pages/welcome/welcome';
 import { SignInPage } from './../pages/sign-in/sign-in';
@@ -19,6 +20,7 @@ import { SignUpPage } from '../pages/sign-up/sign-up';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { HttpClientModule } from '@angular/common/http';
 import { SettingsPage } from '../pages/settings/settings';
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { SettingsPage } from '../pages/settings/settings';
     DashboardPage,
     StockPage,
     OrdersPage,
-    SettingsPage
+    SettingsPage,
+    AddStockPage
   ],
   imports: [
     BrowserModule,
@@ -53,13 +56,17 @@ import { SettingsPage } from '../pages/settings/settings';
     DashboardPage,
     StockPage,
     OrdersPage,
-    SettingsPage
+    SettingsPage,
+    AddStockPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
+    
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthServiceProvider
+    AuthServiceProvider,
+    
   ]
 })
 export class AppModule {}
