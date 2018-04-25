@@ -22,6 +22,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { SettingsPage } from '../pages/settings/settings';
 import { Camera } from '@ionic-native/camera';
 
+// Map library
+import { AgmCoreModule } from '@agm/core';
+import { GoogleMaps } from '@ionic-native/google-maps';
+// Geolocation features
+import { Geolocation } from '@ionic-native/geolocation';
+import { NativeGeocoder, NativeGeocoderReverseResult } from '@ionic-native/native-geocoder';
+
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -41,7 +50,10 @@ import { Camera } from '@ionic-native/camera';
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBJqs9qxDAaSBRcl1i9Ot8hJNbRSyIyPWk'
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -63,6 +75,9 @@ import { Camera } from '@ionic-native/camera';
     StatusBar,
     SplashScreen,
     Camera,
+    Geolocation,
+    NativeGeocoder,
+    GoogleMaps,
     
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthServiceProvider,

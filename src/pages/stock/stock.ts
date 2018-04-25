@@ -46,11 +46,19 @@ export class StockPage {
         message.present();
         this.navCtrl.push(PharmacyPage);
       } else {
-        this.showCards = true;
         this.getUserStock();
       }
-    })
+    },(error =>{
+        let message = this.toaster.create({
+        message: 'Service not available',
+        duration: 8000,
+        dismissOnPageChange: true,
+        position: 'top'
+      });
+      message.present();
+    }));
   }
+  
 
   getUserStock(){
     this.auth.getSingle('my_stock',localStorage.getItem('logUserId'),localStorage.getItem('jwt'))
