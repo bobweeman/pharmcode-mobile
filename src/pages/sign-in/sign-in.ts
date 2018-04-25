@@ -54,9 +54,9 @@ export class SignInPage implements OnInit {
       username: '',
       password: '',
       client_id: '2',
-    client_secret: 'TwAWweYlVbXBnGjnzsg4YJvIcsKa20CJ8Yu8STG2',
+      client_secret: '5JFugStktuEGFtIeYUxib4PZHTcd2UrxVESMLeEH',
       grant_type:'password',
-      scope:''
+      scope:'*'
     
    
   }
@@ -78,7 +78,7 @@ export class SignInPage implements OnInit {
       },error=>{
         console.log(error.status);
         if(error.status===400){
-          console.log('yolo');
+          console.log('Unauthorized');
           let message=this.toaster.create({
             message: 'Please fill the form',
             duration:8000,

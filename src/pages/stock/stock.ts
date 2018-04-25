@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, ToastController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { AddStockPage } from '../add-stock/add-stock';
+import { PharmacyPage } from '../pharmacy/pharmacy';
 
 /**
  * Generated class for the StockPage page.
@@ -21,10 +22,9 @@ export class StockPage {
   showCards:boolean=false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AuthServiceProvider, private modalCtrl: ModalController, private toaster: ToastController) {
-    
-    // getting user stock
-    this.getUserStock();
 
+    this.checkForPharmacy();
+    
   }
 
   // stocking shop page
@@ -32,12 +32,24 @@ export class StockPage {
     this.navCtrl.push(AddStockPage);
   }
 
-  update(id){
-
-  }
-
-  view(id){
-
+  // checking if pharmacist has a pharmacy
+  checkForPharmacy(){
+    this.auth.getSingle('check_pharmacy',localStorage.getItem('logUserId'),localStorage.getItem('jwt'))
+    .subscribe((result) => {
+      if (result['data'].length == 0) {
+        let message = this.toaster.create({
+          message: 'Please create a pharmacy to continue',
+          duration: 8000,
+          dismissOnPageChange: true,
+          position: 'top'
+        });
+        message.present();
+        this.navCtrl.push(PharmacyPage);
+      } else {
+        this.showCards = true;
+        this.getUserStock();
+      }
+    })
   }
 
   getUserStock(){
