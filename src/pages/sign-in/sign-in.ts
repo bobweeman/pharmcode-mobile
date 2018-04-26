@@ -1,3 +1,4 @@
+import { PharmacyPage } from './../pharmacy/pharmacy';
 import { SignUpPage } from './../sign-up/sign-up';
 import { DashboardPage } from './../dashboard/dashboard';
 import { TabsPage } from './../tabs/tabs';
@@ -101,7 +102,9 @@ export class SignInPage implements OnInit {
   }
 
   stock(){
-    this.navCtrl.push(StockPage);
+    this.navCtrl.push(PharmacyPage);
   }
+
+
 
 }

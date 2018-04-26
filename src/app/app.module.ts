@@ -1,3 +1,5 @@
+import { PharmacyPage } from './../pages/pharmacy/pharmacy';
+import { PharmacyMapPage } from './../pages/pharmacy-map/pharmacy-map';
 import { OrdersPage } from './../pages/orders/orders';
 import { StockPage } from './../pages/stock/stock';
 import { AddStockPage } from './../pages/add-stock/add-stock';
@@ -45,7 +47,9 @@ import { NativeGeocoder, NativeGeocoderReverseResult } from '@ionic-native/nativ
     StockPage,
     OrdersPage,
     SettingsPage,
-    AddStockPage
+    AddStockPage,
+    PharmacyPage,
+    PharmacyMapPage
   ],
   imports: [
     BrowserModule,
@@ -69,7 +73,9 @@ import { NativeGeocoder, NativeGeocoderReverseResult } from '@ionic-native/nativ
     StockPage,
     OrdersPage,
     SettingsPage,
-    AddStockPage
+    AddStockPage,
+    PharmacyPage,
+    PharmacyMapPage
   ],
   providers: [
     StatusBar,

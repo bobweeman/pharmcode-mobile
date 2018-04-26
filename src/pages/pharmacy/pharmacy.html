@@ -42,7 +42,7 @@
       </ion-item>
 
       <ion-item>
-          <ion-label floating><Address></Address>:</ion-label>
+          <ion-label floating>Address:</ion-label>
           <ion-input [class.invalid]="!pharmacyForm.controls.name.valid && (pharmacyForm.controls.name.dirty || submitAttempt)" type="textarea" formControlName="address"></ion-input>
        </ion-item>
        <ion-item *ngIf="!pharmacyForm.controls.name.valid  && (pharmacyForm.controls.name.dirty || submitAttempt)">

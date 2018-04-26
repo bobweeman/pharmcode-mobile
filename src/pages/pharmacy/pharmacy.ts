@@ -42,7 +42,7 @@ export class PharmacyPage {
         phone:[null,Validators.compose([Validators.required,Validators.minLength(10)])],
         email:[null,Validators.compose([Validators.required,Validators.email])],
         address:[null,Validators.compose([Validators.required,Validators.minLength(5)])],
-        webite:[null,Validators.compose([Validators.required,Validators.minLength(5)])]
+        website:[null,Validators.compose([Validators.required,Validators.minLength(5)])]
     });
   }
 
