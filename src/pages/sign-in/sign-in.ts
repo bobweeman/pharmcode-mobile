@@ -54,11 +54,7 @@ export class SignInPage implements OnInit {
       username: '',
       password: '',
       client_id: '2',
-<<<<<<< HEAD
-      client_secret: 'rBznq4EzBrRyiSee6Ph95u7tbissDnRUt6cRipFK',
-=======
     client_secret: 'TwAWweYlVbXBnGjnzsg4YJvIcsKa20CJ8Yu8STG2',
->>>>>>> dev-akrong
       grant_type:'password',
       scope:''
     
