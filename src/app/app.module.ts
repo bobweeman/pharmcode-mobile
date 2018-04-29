@@ -1,3 +1,4 @@
+import { TutorialPage } from './../pages/tutorial/tutorial';
 import { PharmacyPage } from './../pages/pharmacy/pharmacy';
 import { PharmacyMapPage } from './../pages/pharmacy-map/pharmacy-map';
 import { OrdersPage } from './../pages/orders/orders';
@@ -30,6 +31,7 @@ import { GoogleMaps } from '@ionic-native/google-maps';
 // Geolocation features
 import { Geolocation } from '@ionic-native/geolocation';
 import { NativeGeocoder, NativeGeocoderReverseResult } from '@ionic-native/native-geocoder';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -49,7 +51,8 @@ import { NativeGeocoder, NativeGeocoderReverseResult } from '@ionic-native/nativ
     SettingsPage,
     AddStockPage,
     PharmacyPage,
-    PharmacyMapPage
+    PharmacyMapPage,
+    TutorialPage
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,8 @@ import { NativeGeocoder, NativeGeocoderReverseResult } from '@ionic-native/nativ
     IonicModule.forRoot(MyApp),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBJqs9qxDAaSBRcl1i9Ot8hJNbRSyIyPWk'
-    })
+    }),
+    BrowserAnimationsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -75,7 +79,8 @@ import { NativeGeocoder, NativeGeocoderReverseResult } from '@ionic-native/nativ
     SettingsPage,
     AddStockPage,
     PharmacyPage,
-    PharmacyMapPage
+    PharmacyMapPage,
+    TutorialPage
   ],
   providers: [
     StatusBar,
