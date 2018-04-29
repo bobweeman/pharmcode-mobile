@@ -1,3 +1,7 @@
+import { CheckoutPage } from './../pages/checkout/checkout';
+import { MyCartPage } from './../pages/my-cart/my-cart';
+import { ProductListPage } from './../pages/product-list/product-list';
+import { ProductDetailPage } from './../pages/product-detail/product-detail';
 import { TutorialPage } from './../pages/tutorial/tutorial';
 import { PharmacyPage } from './../pages/pharmacy/pharmacy';
 import { PharmacyMapPage } from './../pages/pharmacy-map/pharmacy-map';
@@ -32,6 +36,7 @@ import { GoogleMaps } from '@ionic-native/google-maps';
 import { Geolocation } from '@ionic-native/geolocation';
 import { NativeGeocoder, NativeGeocoderReverseResult } from '@ionic-native/native-geocoder';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CartProvider } from '../providers/cart/cart';
 
 
 
@@ -52,7 +57,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AddStockPage,
     PharmacyPage,
     PharmacyMapPage,
-    TutorialPage
+    TutorialPage,
+    ProductDetailPage,
+    ProductListPage,
+    MyCartPage,
+    CheckoutPage
   ],
   imports: [
     BrowserModule,
@@ -80,7 +89,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AddStockPage,
     PharmacyPage,
     PharmacyMapPage,
-    TutorialPage
+    TutorialPage,
+    ProductDetailPage,
+    ProductListPage,
+    MyCartPage,
+    CheckoutPage
   ],
   providers: [
     StatusBar,
@@ -92,6 +105,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthServiceProvider,
+    CartProvider,
     
   ]
 })
