@@ -34,7 +34,8 @@ export class PharmacyPage {
   isLoading:boolean=false;
   pharmacyForm:FormGroup;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,  private modalCtrl:ModalController , private auth:AuthServiceProvider, private loadingCtrl:LoadingController,
+  constructor(public navCtrl: NavController, public navParams: NavParams,  private modalCtrl:ModalController , 
+    private auth:AuthServiceProvider, private loadingCtrl:LoadingController,
     private formBuilder:FormBuilder, private geo:Geolocation) {
 
       this.pharmacyForm = formBuilder.group({

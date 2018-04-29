@@ -1,9 +1,3 @@
-<!--
-  Generated template for the PharmacyPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
@@ -19,7 +13,8 @@
         
       <ion-item>
         <ion-label floating>Pharmacy Name:</ion-label>
-        <ion-input [class.invalid]="!pharmacyForm.controls.name.valid && (pharmacyForm.controls.name.dirty || submitAttempt)" type="text" formControlName="name"></ion-input>
+        <ion-input [class.invalid]="!pharmacyForm.controls.name.valid && (pharmacyForm.controls.name.dirty || submitAttempt)" 
+        type="text" formControlName="name"></ion-input>
       </ion-item>
       <ion-item *ngIf="!pharmacyForm.controls.name.valid  && (pharmacyForm.controls.name.dirty || submitAttempt)">
             <p>Please enter the name of your Pharmacy.</p>
@@ -27,15 +22,20 @@
 
       <ion-item>
          <ion-label floating>Tel / Mobile:</ion-label>
-         <ion-input [class.invalid]="!pharmacyForm.controls.name.valid && (pharmacyForm.controls.name.dirty || submitAttempt)" type="tel" formControlName="phone"></ion-input>
+         <ion-input [class.invalid]="!pharmacyForm.controls.name.valid && (pharmacyForm.controls.name.dirty || submitAttempt)" 
+         type="tel" formControlName="phone"></ion-input>
       </ion-item>
       <ion-item *ngIf="!pharmacyForm.controls.name.valid  && (pharmacyForm.controls.name.dirty || submitAttempt)">
             <p>Please enter a valid number.</p>
       </ion-item>
 
+
+
+
       <ion-item>
         <ion-label floating>Email:</ion-label>
-        <ion-input [class.invalid]="!pharmacyForm.controls.name.valid && (pharmacyForm.controls.name.dirty || submitAttempt)" type="email" formControlName="email"></ion-input>
+        <ion-input [class.invalid]="!pharmacyForm.controls.name.valid && (pharmacyForm.controls.name.dirty || submitAttempt)" 
+        type="email" formControlName="email"></ion-input>
       </ion-item>
       <ion-item *ngIf="!pharmacyForm.controls.name.valid  && (pharmacyForm.controls.name.dirty || submitAttempt)">
          <p>Please enter a valid email.</p>
@@ -43,7 +43,8 @@
 
       <ion-item>
           <ion-label floating>Address:</ion-label>
-          <ion-input [class.invalid]="!pharmacyForm.controls.name.valid && (pharmacyForm.controls.name.dirty || submitAttempt)" type="textarea" formControlName="address"></ion-input>
+          <ion-input [class.invalid]="!pharmacyForm.controls.name.valid && (pharmacyForm.controls.name.dirty || submitAttempt)" 
+          type="textarea" formControlName="address"></ion-input>
        </ion-item>
        <ion-item *ngIf="!pharmacyForm.controls.name.valid  && (pharmacyForm.controls.name.dirty || submitAttempt)">
              <p>Please enter the pharmacy`s address.</p>
@@ -51,17 +52,23 @@
 
        <ion-item>
           <ion-label floating>Website Url:</ion-label>
-          <ion-input [class.invalid]="!pharmacyForm.controls.name.valid && (pharmacyForm.controls.name.dirty || submitAttempt)" type="textarea" formControlName="website"></ion-input>
+          <ion-input [class.invalid]="!pharmacyForm.controls.name.valid && (pharmacyForm.controls.name.dirty || submitAttempt)" 
+          type="textarea" formControlName="website"></ion-input>
        </ion-item>
        <ion-item *ngIf="!pharmacyForm.controls.name.valid  && (pharmacyForm.controls.name.dirty || submitAttempt)">
              <p>Please enter website link to the pharmacy.</p>
        </ion-item>
       
+       
+       
+       
+       
+       
+       
        <button ion-button icon-left full (click)="mapPharmacy()" *ngIf="!isLoading">
           <ion-icon name="marker"></ion-icon>
           Continue
-        </button>
-        
+       </button>
         <button ion-button icon-left full *ngIf="isLoading">
           <ion-icon name="marker"></ion-icon>
           Please wait      <ion-spinner name="dots"></ion-spinner>

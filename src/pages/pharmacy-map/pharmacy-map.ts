@@ -36,8 +36,10 @@ export class PharmacyMapPage {
     latitude:0,
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl:ViewController, private auth:AuthServiceProvider, private storage:Storage,
-    private loadingCtrl:LoadingController, private nativeGeocoder: NativeGeocoder, private googleMaps: GoogleMaps, private toaster: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl:ViewController, 
+    private auth:AuthServiceProvider, private storage:Storage,
+    private loadingCtrl:LoadingController, private nativeGeocoder: NativeGeocoder, 
+    private googleMaps: GoogleMaps, private toaster: ToastController) {
 
       this.lat = this.navParams.data.latitude;
       this.lng = this.navParams.data.longitude;
@@ -59,13 +61,13 @@ export class PharmacyMapPage {
     this.data.latitude = this.navParams.data.latitude;
     this.data.longitude = this.navParams.data.longitude;
 }
-
   saveWorkLocation(){
     this.loader = this.loadingCtrl.create({
       content:"Saving your place of work"
     });
     this.loader.present();
     this.prepareData();
+
     // console.log(this.data);
     setTimeout(()=>{
       this.auth.postStore("pharmacy",this.data,localStorage.getItem('token')).subscribe((response)=>{
