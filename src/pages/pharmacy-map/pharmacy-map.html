@@ -1,0 +1,28 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title> Save Pharmacy Location? </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <agm-map id="pharmacyLocation" [latitude]="lat" [longitude]="lng">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
+
+    <ion-fab right bottom (click)="savePharmacyLocation()">
+        <button ion-fab color="primary">
+          <ion-icon name="checkmark-circle-outline"></ion-icon>
+        </button>
+      </ion-fab>
+      <ion-fab left bottom (click)="cancel()">
+        <button ion-fab color="danger">
+          <ion-icon name="close-circle"></ion-icon>
+        </button>
+      </ion-fab>
+
+</ion-content>
