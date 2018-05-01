@@ -29,20 +29,7 @@ export class CategoryPage {
     private toastCtrl:ToastController,
 
   ) {
-    this.getCategories().subscribe((data)=>{
-      for(var i=0; i < data.categories.length; ++i){
-        let p_id=data.categories[i].parent_id;
-        for (var j =0; j<data.parent_categories.length; ++j){
-          if(data.parent_categories[j].id==p_id){
-            data.parent_categories[j].child.push(data.categories[i])
-          }
-        }
-      }
-
-      this.cateoryList=data.parent_categories;
-    }, (error)=>{
-      console.error(error);
-    });
+    
   }
 
   goToCart(){
