@@ -1,3 +1,5 @@
+import { CheckoutPage } from './../checkout/checkout';
+import { CartProvider } from './../../providers/cart/cart';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -15,11 +17,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MyCartPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public cart:CartProvider
+  ) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyCartPage');
+  }
+
+  goToCheckout(){
+    this.navCtrl.push(CheckoutPage);
   }
 
 }

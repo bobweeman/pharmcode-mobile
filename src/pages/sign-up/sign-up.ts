@@ -26,7 +26,7 @@ export class SignUpPage {
 
   signupForm = new FormGroup({
     email: new FormControl(null, Validators.compose([Validators.required,Validators.email])),
-    name: new FormControl(null, Validators.compose([Validators.required,Validators.min(3)])),
+    name: new FormControl(null, Validators.compose([Validators.required,Validators.min(8)])),
     password: new FormControl(null, Validators.compose([Validators.required,Validators.min(5)])),
     confirm_password: new FormControl(null, Validators.compose([Validators.required,Validators.min(5)]))
   });

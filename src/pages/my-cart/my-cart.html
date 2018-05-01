@@ -7,12 +7,21 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>MyCart</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Cart-R${{cart.total}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
-</ion-content>
+    <ion-list>
+        <ion-item *ngFor="let o of cart.items">
+          {{o.name}} - R$ {{o.value}}
+        </ion-item>
+      </ion-list>
+      <button ion-button (click)="goToCheckout()">Finalizar compra</button>
+    </ion-content>
+    

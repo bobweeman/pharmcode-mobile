@@ -7,6 +7,8 @@ import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { StockPage } from '../stock/stock';
+import { ProductListPage } from '../product-list/product-list';
+import { ProductDetailPage } from '../product-detail/product-detail';
 
 
 /**
@@ -55,7 +57,7 @@ export class SignInPage implements OnInit {
       username: '',
       password: '',
       client_id: '2',
-      client_secret: '5JFugStktuEGFtIeYUxib4PZHTcd2UrxVESMLeEH',
+      client_secret: 'rBznq4EzBrRyiSee6Ph95u7tbissDnRUt6cRipFK',
       grant_type:'password',
       scope:'*'
     
@@ -102,7 +104,7 @@ export class SignInPage implements OnInit {
   }
 
   stock(){
-    this.navCtrl.push(PharmacyPage);
+    this.navCtrl.push(ProductDetailPage);
   }
 
 
