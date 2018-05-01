@@ -6,15 +6,15 @@
     height: 66%;
 }
 
-ion-icon {
-    margin-top:40%;
-    font-size:7em;
+ion-slide {
+    background-color: darkgreen;
 }
 
 h2 {
     margin-top:80% !important;
     font-weight:bold;
     font-size:1em;
+    color: #fff
 }
 
 p {
@@ -22,14 +22,15 @@ p {
     display:block;
     margin: 0 auto;
     font-size:.9em;
+    color: #fff;
 }
 
 .swiper-pagination-bullet-active {
-    background: #488aff;
+    background: #fff;
 }
 
 .swiper-pagination {
-    bottom: 12% !important;
+    bottom: 15% !important;
 }
 
 #skip {
@@ -40,4 +41,11 @@ p {
     text-align: center;
     cursor: pointer;
     z-index: 5;
+    color: #fff;
+}
+
+.slide-image{
+    height: 30vh !important;
+      width: auto !important;
+      margin-top: 50%
 }
