@@ -1,3 +1,5 @@
+import { ProductFilterPage } from './../pages/product-filter/product-filter';
+import { PopOverPage } from './../pages/pop-over/pop-over';
 import { SearchPage } from './../pages/search/search';
 import { ProductPage } from './../pages/product/product';
 import { ShowcartPage } from './../pages/showcart/showcart';
@@ -69,7 +71,9 @@ import { CartProvider } from '../providers/cart/cart';
     CategoryPage,
     ShowcartPage,
     ProductPage,
-    SearchPage
+    SearchPage,
+    PopOverPage,
+    ProductFilterPage
   ],
   imports: [
     BrowserModule,
@@ -105,7 +109,9 @@ import { CartProvider } from '../providers/cart/cart';
     CategoryPage,
     ShowcartPage,
     ProductPage,
-    SearchPage
+    SearchPage,
+    PopOverPage,
+    ProductFilterPage
   ],
   providers: [
     StatusBar,
