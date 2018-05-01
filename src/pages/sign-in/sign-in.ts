@@ -1,3 +1,6 @@
+import { SearchPage } from './../search/search';
+import { CategoryPage } from './../category/category';
+import { PharmacyMapPage } from './../pharmacy-map/pharmacy-map';
 import { PharmacyPage } from './../pharmacy/pharmacy';
 import { SignUpPage } from './../sign-up/sign-up';
 import { DashboardPage } from './../dashboard/dashboard';
@@ -104,9 +107,12 @@ export class SignInPage implements OnInit {
   }
 
   stock(){
-    this.navCtrl.push(ProductDetailPage);
+    this.navCtrl.push(CategoryPage);
   }
 
+  search(){
+    this.navCtrl.push(SearchPage);
+  }
 
 
 }

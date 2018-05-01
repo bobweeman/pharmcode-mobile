@@ -1,6 +1,9 @@
 <ion-header>
 
   <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
     <ion-title>Sign In</ion-title>
   </ion-navbar>
 
@@ -51,7 +54,10 @@
 
               <ion-item class="no-border">
                   <button  (click)="stock()" ion-button round color="energy" small>Pharmacy</button>
-              </ion-item>
+                  <button  (click)="search()" ion-button round color="energy" small>Search</button>
+                </ion-item>
+
+              
 
             </form>
 

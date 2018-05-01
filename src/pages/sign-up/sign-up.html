@@ -5,7 +5,8 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="signin-page">
+    
     <p *ngIf="submitAttempt" style="color: #ffffff;">Please fill out all details accurately.</p>
 
   <form [formGroup]='signupForm'>

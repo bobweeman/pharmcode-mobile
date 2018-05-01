@@ -1,3 +1,7 @@
+import { SearchPage } from './../pages/search/search';
+import { ProductPage } from './../pages/product/product';
+import { ShowcartPage } from './../pages/showcart/showcart';
+import { CategoryPage } from './../pages/category/category';
 import { CheckoutPage } from './../pages/checkout/checkout';
 import { MyCartPage } from './../pages/my-cart/my-cart';
 import { ProductListPage } from './../pages/product-list/product-list';
@@ -61,7 +65,11 @@ import { CartProvider } from '../providers/cart/cart';
     ProductDetailPage,
     ProductListPage,
     MyCartPage,
-    CheckoutPage
+    CheckoutPage,
+    CategoryPage,
+    ShowcartPage,
+    ProductPage,
+    SearchPage
   ],
   imports: [
     BrowserModule,
@@ -93,7 +101,11 @@ import { CartProvider } from '../providers/cart/cart';
     ProductDetailPage,
     ProductListPage,
     MyCartPage,
-    CheckoutPage
+    CheckoutPage,
+    CategoryPage,
+    ShowcartPage,
+    ProductPage,
+    SearchPage
   ],
   providers: [
     StatusBar,

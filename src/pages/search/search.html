@@ -1,0 +1,23 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-searchbar color="primary" 
+    [(ngModel)]="queryText" 
+    (ionInput)="updateSchedule()"
+    placeholder="Search">
+  </ion-searchbar>
+
+  </ion-navbar >
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <span *ngIf="showSpinner">
+      <ion-spinner class="showSpinner" name="dots"></ion-spinner>
+    </span>
+  </ion-list>
+
+</ion-content>
