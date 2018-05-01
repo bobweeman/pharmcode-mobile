@@ -1,3 +1,4 @@
+import { AccountPage } from './../account/account';
 import { ProductPage } from './../product/product';
 import { SearchPage } from './../search/search';
 import { CategoryPage } from './../category/category';
@@ -117,6 +118,10 @@ export class SignInPage implements OnInit {
 
   product(){
     this.navCtrl.push(ProductPage);
+  }
+
+  account(){
+    this.navCtrl.push(AccountPage);
   }
 
 }
