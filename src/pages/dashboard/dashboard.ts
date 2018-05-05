@@ -1,3 +1,7 @@
+import { AccountPage } from './../account/account';
+import { ShowcartPage } from './../showcart/showcart';
+import { CategoryPage } from './../category/category';
+import { HomePage } from './../home/home';
 import { SettingsPage } from './../settings/settings';
 import { OrdersPage } from './../orders/orders';
 import { StockPage } from './../stock/stock';
@@ -18,9 +22,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class DashboardPage {
 
-  tab1Root = StockPage;
-  tab2Root = OrdersPage;
-  tab3Root = SettingsPage;
+  tab1Root = HomePage;
+  tab2Root = CategoryPage;
+  tab3Root = ShowcartPage;
+  tab4Root = AccountPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

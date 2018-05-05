@@ -1,9 +1,4 @@
-import { AccountPage } from './../account/account';
-import { ProductPage } from './../product/product';
-import { SearchPage } from './../search/search';
-import { CategoryPage } from './../category/category';
-import { PharmacyMapPage } from './../pharmacy-map/pharmacy-map';
-import { PharmacyPage } from './../pharmacy/pharmacy';
+import { HomePage } from './../home/home';
 import { SignUpPage } from './../sign-up/sign-up';
 import { DashboardPage } from './../dashboard/dashboard';
 import { TabsPage } from './../tabs/tabs';
@@ -11,9 +6,7 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { StockPage } from '../stock/stock';
-import { ProductListPage } from '../product-list/product-list';
-import { ProductDetailPage } from '../product-detail/product-detail';
+
 
 
 /**
@@ -61,8 +54,8 @@ export class SignInPage implements OnInit {
    
       username: '',
       password: '',
-      client_id: '2',
-      client_secret: 'rBznq4EzBrRyiSee6Ph95u7tbissDnRUt6cRipFK',
+      client_id: '6',
+      client_secret: 'QzLzyLAzLxfQ558F9Umiqcc6L9EbQ8fptlP9vLrz',
       grant_type:'password',
       scope:'*'
     
@@ -108,20 +101,9 @@ export class SignInPage implements OnInit {
       });
   }
 
-  stock(){
-    this.navCtrl.push(PharmacyPage);
+  home(){
+    this.navCtrl.push(HomePage);
   }
 
-  search(){
-    this.navCtrl.push(SearchPage);
-  }
-
-  product(){
-    this.navCtrl.push(ProductPage);
-  }
-
-  account(){
-    this.navCtrl.push(AccountPage);
-  }
-
+ 
 }

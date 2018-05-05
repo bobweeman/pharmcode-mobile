@@ -1,3 +1,6 @@
+import { ListPage } from './../pages/list/list';
+import { WishlistPage } from './../pages/wishlist/wishlist';
+import { ScanQrcodePage } from './../pages/scan-qrcode/scan-qrcode';
 import { AccountPage } from './../pages/account/account';
 import { ProductFilterPage } from './../pages/product-filter/product-filter';
 import { PopOverPage } from './../pages/pop-over/pop-over';
@@ -44,6 +47,9 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { NativeGeocoder, NativeGeocoderReverseResult } from '@ionic-native/native-geocoder';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CartProvider } from '../providers/cart/cart';
+import { PhotoLibrary} from '@ionic-native/photo-library';
+import {NgxQRCodeModule} from 'ngx-qrcode2';
+import { BarcodeScanner} from '@ionic-native/barcode-scanner';
 
 
 
@@ -75,7 +81,10 @@ import { CartProvider } from '../providers/cart/cart';
     SearchPage,
     PopOverPage,
     ProductFilterPage,
-    AccountPage
+    AccountPage,
+    ScanQrcodePage,
+    WishlistPage,
+    ListPage
   ],
   imports: [
     BrowserModule,
@@ -84,7 +93,8 @@ import { CartProvider } from '../providers/cart/cart';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBJqs9qxDAaSBRcl1i9Ot8hJNbRSyIyPWk'
     }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxQRCodeModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -114,7 +124,10 @@ import { CartProvider } from '../providers/cart/cart';
     SearchPage,
     PopOverPage,
     ProductFilterPage,
-   AccountPage
+     AccountPage,
+     ScanQrcodePage,
+     WishlistPage,
+     ListPage
   ],
   providers: [
     StatusBar,
@@ -123,6 +136,8 @@ import { CartProvider } from '../providers/cart/cart';
     Geolocation,
     NativeGeocoder,
     GoogleMaps,
+    PhotoLibrary,
+    BarcodeScanner,
     
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthServiceProvider,
@@ -131,3 +146,4 @@ import { CartProvider } from '../providers/cart/cart';
   ]
 })
 export class AppModule {}
+ 
