@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import { PharmacyTabsPage } from './../pages/pharmacy-tabs/pharmacy-tabs';
-=======
-import { ListPage } from './../pages/list/list';
-import { WishlistPage } from './../pages/wishlist/wishlist';
-import { ScanQrcodePage } from './../pages/scan-qrcode/scan-qrcode';
->>>>>>> origin/dev-bervelyn
 import { AccountPage } from './../pages/account/account';
 import { ProductFilterPage } from './../pages/product-filter/product-filter';
 import { PopOverPage } from './../pages/pop-over/pop-over';
@@ -54,6 +47,9 @@ import { CartProvider } from '../providers/cart/cart';
 import { PhotoLibrary} from '@ionic-native/photo-library';
 import {NgxQRCodeModule} from 'ngx-qrcode2';
 import { BarcodeScanner} from '@ionic-native/barcode-scanner';
+import { ListPage } from '../pages/list/list';
+import { WishlistPage } from '../pages/wishlist/wishlist';
+import { ScanQrcodePage } from '../pages/scan-qrcode/scan-qrcode';
 
 
 
@@ -86,13 +82,9 @@ import { BarcodeScanner} from '@ionic-native/barcode-scanner';
     PopOverPage,
     ProductFilterPage,
     AccountPage,
-<<<<<<< HEAD
-    PharmacyTabsPage
-=======
     ScanQrcodePage,
     WishlistPage,
     ListPage
->>>>>>> origin/dev-bervelyn
   ],
   imports: [
     BrowserModule,
@@ -132,15 +124,10 @@ import { BarcodeScanner} from '@ionic-native/barcode-scanner';
     SearchPage,
     PopOverPage,
     ProductFilterPage,
-<<<<<<< HEAD
-    AccountPage,
-    PharmacyTabsPage
-=======
      AccountPage,
      ScanQrcodePage,
      WishlistPage,
      ListPage
->>>>>>> origin/dev-bervelyn
   ],
   providers: [
     StatusBar,
