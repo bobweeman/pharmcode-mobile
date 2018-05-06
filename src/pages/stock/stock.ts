@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ToastController, PopoverController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { AddStockPage } from '../add-stock/add-stock';
 import { PharmacyPage } from '../pharmacy/pharmacy';
+import { PopOverPage } from '../pop-over/pop-over';
 
 /**
  * Generated class for the StockPage page.
@@ -21,7 +22,7 @@ export class StockPage {
   stock:any;  
   showCards:boolean=false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AuthServiceProvider, private modalCtrl: ModalController, private toaster: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AuthServiceProvider, private modalCtrl: ModalController, private toaster: ToastController, public popoverCtrl:PopoverController,) {
 
     this.checkForPharmacy();
     
@@ -30,6 +31,13 @@ export class StockPage {
   // stocking shop page
   stockShop(){
     this.navCtrl.push(AddStockPage);
+  }
+
+  presentPopover(myEvent:Event) {
+    let popover = this.popoverCtrl.create(PopOverPage);
+    popover.present({
+      ev: myEvent
+    });
   }
 
   // checking if pharmacist has a pharmacy

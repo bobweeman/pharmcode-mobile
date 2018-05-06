@@ -47,13 +47,11 @@ import { CartProvider } from '../providers/cart/cart';
 import { PhotoLibrary} from '@ionic-native/photo-library';
 import {NgxQRCodeModule} from 'ngx-qrcode2';
 import { BarcodeScanner} from '@ionic-native/barcode-scanner';
-<<<<<<< HEAD
 import { ListPage } from '../pages/list/list';
 import { WishlistPage } from '../pages/wishlist/wishlist';
 import { ScanQrcodePage } from '../pages/scan-qrcode/scan-qrcode';
-=======
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
->>>>>>> origin/dev-bervelyn
+import { PharmacyTabsPage } from '../pages/pharmacy-tabs/pharmacy-tabs';
 
 
 
@@ -89,7 +87,8 @@ import { ResetPasswordPage } from '../pages/reset-password/reset-password';
     ScanQrcodePage,
     WishlistPage,
     ListPage,
-    ResetPasswordPage
+    ResetPasswordPage,
+    PharmacyTabsPage
   ],
   imports: [
     BrowserModule,
@@ -133,7 +132,8 @@ import { ResetPasswordPage } from '../pages/reset-password/reset-password';
      ScanQrcodePage,
      WishlistPage,
      ListPage,
-     ResetPasswordPage
+     ResetPasswordPage,
+     PharmacyTabsPage
   ],
   providers: [
     StatusBar,

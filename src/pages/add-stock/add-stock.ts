@@ -68,6 +68,10 @@ export class AddStockPage {
     }),(error=>{
       alert(JSON.stringify(error));
     }))
-}
+  }
+
+  presentActionSheet(){ 
+
+  }
 
 }

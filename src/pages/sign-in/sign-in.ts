@@ -142,9 +142,8 @@ export class SignInPage implements OnInit {
     });
   }
 
-    goToResetPassword(){
-      this.navCtrl.push(ResetPasswordPage);
-    }
-
+  goToResetPassword(){
+    this.navCtrl.push(ResetPasswordPage);
+  }
  
 }
