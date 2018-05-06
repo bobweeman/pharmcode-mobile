@@ -1,3 +1,4 @@
+import { Camera } from '@ionic-native/camera';
 import { PopOverPage } from './../pop-over/pop-over';
 import { WishlistPage } from './../wishlist/wishlist';
 import { ShowcartPage } from './../showcart/showcart';
@@ -15,12 +16,14 @@ import { ListPage } from '../list/list';
 })
 export class HomePage {
   scannedCode=null;
+  base64Image:any;
 
   constructor(public navCtrl: NavController, 
     public app: App,
     private barcodeScanner:BarcodeScanner,
     private photoLibrary:PhotoLibrary,
-    public popoverCtrl:PopoverController
+    public popoverCtrl:PopoverController,
+    public camera:Camera
 
   ) {
 
@@ -76,5 +79,16 @@ export class HomePage {
   .catch(err => console.log('permissions weren\'t granted'));
  }
 
+
+ accessGallery(){
+  this.camera.getPicture({
+    sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
+    destinationType: this.camera.DestinationType.DATA_URL
+   }).then((imageData) => {
+     this.base64Image = 'data:image/jpeg;base64,'+imageData;
+    }, (err) => {
+     console.log(err);
+   }); 
+ }
 
 }

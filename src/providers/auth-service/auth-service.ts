@@ -11,6 +11,9 @@ import { ToastController, LoadingController } from 'ionic-angular';
 @Injectable()
 export class AuthServiceProvider {
 
+  resetPassword(arg0: any): any {
+    throw new Error("Method not implemented.");
+  }
   private server = "http://localhost:8000/api/";
   private oauth = "http://localhost:8000/";
   

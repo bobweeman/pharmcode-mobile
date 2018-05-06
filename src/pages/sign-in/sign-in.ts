@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { ResetPasswordPage } from '../reset-password/reset-password';
 
 
 
@@ -28,7 +29,9 @@ export class SignInPage implements OnInit {
   acc_lvl: boolean = false;
   signing: boolean = false;
 
-  constructor(private auth: AuthServiceProvider, private navCtrl:NavController, private toaster:ToastController) {
+  constructor(private auth: AuthServiceProvider, 
+    private navCtrl:NavController, 
+    private toaster:ToastController) {
 
   }
 
@@ -102,12 +105,8 @@ export class SignInPage implements OnInit {
       });
   }
 
-  home(){
-    this.navCtrl.push(HomePage);
-  }
-
-  checkout(){
-    this.navCtrl.push(CheckoutPage);
+  goToResetPassword(){
+    this.navCtrl.push(ResetPasswordPage);
   }
 
  

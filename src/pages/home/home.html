@@ -15,11 +15,12 @@
         </button>
         <ion-card *ngIf="scannedCode">
           <ion-card-content>
-            Result from Scan: scannedCode 
+            Result from Scan: scannedCode
+          <button ion-button small round outline (click)="accessGallery()" class="photoButton">Import from Gallery</button>
+            <img [src]="base64Image" *ngIf="base64Image" />
+          
           </ion-card-content>
-          <button ion-button small round outline (click)="photoLib()" class="photoButton">Import from Gallery</button>
-  
-        
+         
         </ion-card>
       </ion-buttons>
 

@@ -1,9 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-      <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
-        </button>
+      
     <ion-title>Sign In</ion-title>
   </ion-navbar>
 
@@ -51,14 +49,10 @@
                     Signing in<ion-spinner name="dots"></ion-spinner> 
                 </button>
               </span>
-
               
-                
-                <ion-item class="no-border">
-                    <button  (click)="home()" ion-button round color="primary" small>Home</button>
-                    <button  (click)="checkout()" ion-button round color="primary" small>Checkout</button>
-                    
-                  </ion-item>
+              <ion-item class="forgotpassword animated headShake infinite">
+                    <button  ion-button block clear (click)="goToResetPassword()" class="forgot-password" small>Forgot Password?</button>
+              </ion-item>
 
             </form>
 
