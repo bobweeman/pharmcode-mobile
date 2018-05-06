@@ -15,7 +15,7 @@
         </button>
         <ion-card *ngIf="scannedCode">
           <ion-card-content>
-            Reault from Scan: scannedCode 
+            Result from Scan: scannedCode 
           </ion-card-content>
           <button ion-button small round outline (click)="photoLib()" class="photoButton">Import from Gallery</button>
   
@@ -30,10 +30,10 @@
         </ion-buttons>
 
         <ion-buttons end>
-            <button ion-button icon-left (click)="openWishlist()">
-              <ion-icon ios="list" md="md-list"></ion-icon>
-            </button>
-          </ion-buttons>
+          <button ion-button icon-only (click)="presentPopover($event)">
+            <ion-icon name="more"></ion-icon>
+          </button>
+        </ion-buttons>
 
   </ion-navbar>
 </ion-header>

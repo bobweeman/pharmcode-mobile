@@ -1,3 +1,4 @@
+import { CheckoutPage } from './../checkout/checkout';
 import { HomePage } from './../home/home';
 import { SignUpPage } from './../sign-up/sign-up';
 import { DashboardPage } from './../dashboard/dashboard';
@@ -103,6 +104,10 @@ export class SignInPage implements OnInit {
 
   home(){
     this.navCtrl.push(HomePage);
+  }
+
+  checkout(){
+    this.navCtrl.push(CheckoutPage);
   }
 
  

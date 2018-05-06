@@ -1,3 +1,4 @@
+import { PopOverPage } from './../pop-over/pop-over';
 import { WishlistPage } from './../wishlist/wishlist';
 import { ShowcartPage } from './../showcart/showcart';
 import { PhotoLibrary } from '@ionic-native/photo-library';
@@ -5,7 +6,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { ScanQrcodePage } from './../scan-qrcode/scan-qrcode';
 import { SearchPage } from './../search/search';
 import { Component } from '@angular/core';
-import { NavController, App } from 'ionic-angular';
+import { NavController, App, PopoverController } from 'ionic-angular';
 import { ListPage } from '../list/list';
 
 @Component({
@@ -15,7 +16,13 @@ import { ListPage } from '../list/list';
 export class HomePage {
   scannedCode=null;
 
-  constructor(public navCtrl: NavController, public app: App,private barcodeScanner:BarcodeScanner,private photoLibrary:PhotoLibrary) {
+  constructor(public navCtrl: NavController, 
+    public app: App,
+    private barcodeScanner:BarcodeScanner,
+    private photoLibrary:PhotoLibrary,
+    public popoverCtrl:PopoverController
+
+  ) {
 
   }
 
@@ -27,8 +34,11 @@ export class HomePage {
     this.navCtrl.push(ShowcartPage);
   }
 
-  openWishlist(){
-    this.navCtrl.push(WishlistPage);
+  presentPopover(myEvent:Event) {
+    let popover = this.popoverCtrl.create(PopOverPage);
+    popover.present({
+      ev: myEvent
+    });
   }
 
   openList(){

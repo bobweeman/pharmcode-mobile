@@ -29,7 +29,14 @@
     <div [ngSwitch]="account">
     
         <div padding-top text-center *ngSwitchCase="'profile'" >
-          
+            <img alt="profileImage" [src]="base64Image">
+            <h3>{{Username}}</h3>
+
+            <ion-list inset>
+                <button ion-item (click)="updatePicture()">Update Picture</button>
+                <button ion-item (click)="addDOB()">Update Birth Date</button>
+                <button ion-item (click)="logout()">Logout</button>
+              </ion-list>
         </div>
     
         <div padding-top text-center *ngSwitchCase="'orders'" >

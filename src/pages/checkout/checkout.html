@@ -7,9 +7,6 @@
 <ion-header>
 
   <ion-navbar>
-      <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
-        </button>
     <ion-title>Checkout</ion-title>
   </ion-navbar>
 
@@ -17,30 +14,48 @@
 
 
 <ion-content padding>
-  <ion-list>
-    <ion-item>
-      <ion-label>Number of cart</ion-label>
-      <ion-input type="text" value=""[(ngModel)]="creditCard.num"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-label>Código de segurança</ion-label>
-        <ion-input type="text" [(ngModel)]="creditCard.cvv"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Mês - Expiração</ion-label>
-        <ion-input type="text" [(ngModel)]="creditCard.monthExp"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Ano - Expiração</ion-label>
-        <ion-input type="text" [(ngModel)]="creditCard.yearExp"></ion-input>
-      </ion-item>
-  </ion-list>
-  
-  <button ion-button (click)="paymentCreditCard()">Pagar</button>
 
-  <ion-list>
-    <ion-item *ngFor="let o of cart.items">
-      {{o.name}} - R$ {{o.value}}
-    </ion-item>
-  </ion-list>
+		<ion-card>
+				<ion-card-content>
+					<ion-item>
+						<p>PRICE DETAILS</p>
+					</ion-item>
+					<ion-row class="detail-row">
+						<p>PRICE DETAILS</p>
+					</ion-row>
+					<ion-row>
+						<ion-col width-70>
+							<p>Price(1 item)</p>
+							<p>Delievery</p>
+						</ion-col>
+						<ion-col width-30>
+								<p style="text-align: right;">499</p>
+								<p style="text-align: right;color: #388e3c;">Free</p>
+						</ion-col>
+					</ion-row>
+					
+				</ion-card-content>
+			</ion-card>
+  <ion-card>
+		<ion-card-content>
+			<ion-item>
+				Credit /Debit Card
+				<ion-icon name="arrow-forward" item-right></ion-icon>
+			</ion-item>
+
+			<ion-item>
+				Mobile Money
+				<ion-icon name="arrow-forward" item-right></ion-icon>
+			</ion-item>
+
+			<ion-item>
+				Cash on Delivery
+				<ion-icon name="arrow-forward" item-right></ion-icon>
+			</ion-item>
+
+	
+		</ion-card-content>
+	</ion-card>
+
+	
 </ion-content>
