@@ -1,54 +1,31 @@
-import { PopOverPage } from './../pop-over/pop-over';
-import { WishlistPage } from './../wishlist/wishlist';
-import { ShowcartPage } from './../showcart/showcart';
-import { PhotoLibrary } from '@ionic-native/photo-library';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
-import { ScanQrcodePage } from './../scan-qrcode/scan-qrcode';
-import { SearchPage } from './../search/search';
 import { Component } from '@angular/core';
-import { NavController, App, PopoverController } from 'ionic-angular';
-import { ListPage } from '../list/list';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { PhotoLibrary } from '@ionic-native/photo-library';
 
+/**
+ * Generated class for the ScanQrcodePage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
+@IonicPage()
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-scan-qrcode',
+  templateUrl: 'scan-qrcode.html',
 })
-export class HomePage {
+export class ScanQrcodePage {
   scannedCode=null;
 
-  constructor(public navCtrl: NavController, 
-    public app: App,
-    private barcodeScanner:BarcodeScanner,
-    private photoLibrary:PhotoLibrary,
-    public popoverCtrl:PopoverController
-
-  ) {
-
+  constructor(public navCtrl: NavController,
+     public navParams: NavParams,
+     private photoLibrary:PhotoLibrary,
+    private barcodeScanner:BarcodeScanner) {
   }
 
-  search(){
-    this.navCtrl.push(SearchPage);
-  }
-
-  openCart(){
-    this.navCtrl.push(ShowcartPage);
-  }
-
-  presentPopover(myEvent:Event) {
-    let popover = this.popoverCtrl.create(PopOverPage);
-    popover.present({
-      ev: myEvent
-    });
-  }
-
-  openList(){
-    this.navCtrl.push(ListPage);
-  }
-
-  scanCode(){
-    this.barcodeScanner.scan().then(barcodeData=>{
-      this.scannedCode=barcodeData.text;
-    })
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad ScanQrcodePage');
   }
 
 
@@ -76,5 +53,10 @@ export class HomePage {
   .catch(err => console.log('permissions weren\'t granted'));
  }
 
+scanCode(){
+  this.barcodeScanner.scan().then(barcodeData=>{
+    this.scannedCode=barcodeData.text;
+  })
+}
 
 }

@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 import { PharmacyTabsPage } from './../pages/pharmacy-tabs/pharmacy-tabs';
+=======
+import { ListPage } from './../pages/list/list';
+import { WishlistPage } from './../pages/wishlist/wishlist';
+import { ScanQrcodePage } from './../pages/scan-qrcode/scan-qrcode';
+>>>>>>> origin/dev-bervelyn
 import { AccountPage } from './../pages/account/account';
 import { ProductFilterPage } from './../pages/product-filter/product-filter';
 import { PopOverPage } from './../pages/pop-over/pop-over';
@@ -45,6 +51,9 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { NativeGeocoder, NativeGeocoderReverseResult } from '@ionic-native/native-geocoder';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CartProvider } from '../providers/cart/cart';
+import { PhotoLibrary} from '@ionic-native/photo-library';
+import {NgxQRCodeModule} from 'ngx-qrcode2';
+import { BarcodeScanner} from '@ionic-native/barcode-scanner';
 
 
 
@@ -77,7 +86,13 @@ import { CartProvider } from '../providers/cart/cart';
     PopOverPage,
     ProductFilterPage,
     AccountPage,
+<<<<<<< HEAD
     PharmacyTabsPage
+=======
+    ScanQrcodePage,
+    WishlistPage,
+    ListPage
+>>>>>>> origin/dev-bervelyn
   ],
   imports: [
     BrowserModule,
@@ -86,7 +101,8 @@ import { CartProvider } from '../providers/cart/cart';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBJqs9qxDAaSBRcl1i9Ot8hJNbRSyIyPWk'
     }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxQRCodeModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -116,8 +132,15 @@ import { CartProvider } from '../providers/cart/cart';
     SearchPage,
     PopOverPage,
     ProductFilterPage,
+<<<<<<< HEAD
     AccountPage,
     PharmacyTabsPage
+=======
+     AccountPage,
+     ScanQrcodePage,
+     WishlistPage,
+     ListPage
+>>>>>>> origin/dev-bervelyn
   ],
   providers: [
     StatusBar,
@@ -126,6 +149,8 @@ import { CartProvider } from '../providers/cart/cart';
     Geolocation,
     NativeGeocoder,
     GoogleMaps,
+    PhotoLibrary,
+    BarcodeScanner,
     
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthServiceProvider,
@@ -134,3 +159,4 @@ import { CartProvider } from '../providers/cart/cart';
   ]
 })
 export class AppModule {}
+ 

@@ -1,9 +1,83 @@
 <ion-header>
+
   <ion-navbar>
     <ion-title>Home</ion-title>
+
+    <ion-buttons end>
+      <button ion-button (click)="search()">
+        <ion-icon ios="ios-search" md="md-search"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-buttons end>
+        <button ion-button (click)="scanCode()">
+          <ion-icon ios="ios-qr-scanner" md="md-qr-scanner"></ion-icon>
+        </button>
+        <ion-card *ngIf="scannedCode">
+          <ion-card-content>
+            Result from Scan: scannedCode 
+          </ion-card-content>
+          <button ion-button small round outline (click)="photoLib()" class="photoButton">Import from Gallery</button>
+  
+        
+        </ion-card>
+      </ion-buttons>
+
+      <ion-buttons end>
+          <button ion-button icon-left (click)="openCart()">
+            <ion-icon ios="ios-cart" md="md-cart"></ion-icon>
+          </button>
+        </ion-buttons>
+
+        <ion-buttons end>
+          <button ion-button icon-only (click)="presentPopover($event)">
+            <ion-icon name="more"></ion-icon>
+          </button>
+        </ion-buttons>
+
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <ion-list>
+    <ion-item (click) = "openList()">
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/paracetamol.jpg">
+      </ion-thumbnail>
+      <h3>Paracetamol</h3>
+      
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+      <ion-item (click) = "openList()">
+        <ion-thumbnail item-start>
+          <img src="assets/imgs/diabetes.jpg">
+        </ion-thumbnail>
+        <h3>Memphronine</h3>
+      
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+        <ion-item (click) = "openList()">
+          <ion-thumbnail item-start>
+            <img src="assets/imgs/paracetamol.jpg">
+          </ion-thumbnail>
+          <h3>Paracetamol</h3>
+          
+        </ion-item>
+      </ion-list>
+
+      <ion-list>
+          <ion-item (click) = "openList()">
+            <ion-thumbnail item-start>
+              <img src="assets/imgs/diabetes.jpg">
+            </ion-thumbnail>
+            <h3>Memphronine</h3>
+            
+          </ion-item>
+        </ion-list>
+
     
   </ion-content>

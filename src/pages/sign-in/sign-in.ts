@@ -1,9 +1,5 @@
-import { AccountPage } from './../account/account';
-import { ProductPage } from './../product/product';
-import { SearchPage } from './../search/search';
-import { CategoryPage } from './../category/category';
-import { PharmacyMapPage } from './../pharmacy-map/pharmacy-map';
-import { PharmacyPage } from './../pharmacy/pharmacy';
+import { CheckoutPage } from './../checkout/checkout';
+import { HomePage } from './../home/home';
 import { SignUpPage } from './../sign-up/sign-up';
 import { DashboardPage } from './../dashboard/dashboard';
 import { TabsPage } from './../tabs/tabs';
@@ -11,11 +7,8 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { StockPage } from '../stock/stock';
-import { ProductListPage } from '../product-list/product-list';
-import { ProductDetailPage } from '../product-detail/product-detail';
-import { AdminTabsPage } from '../admin-tabs/admin-tabs';
 import { PharmacyTabsPage } from '../pharmacy-tabs/pharmacy-tabs';
+import { AdminTabsPage } from '../admin-tabs/admin-tabs';
 
 
 /**
@@ -145,4 +138,5 @@ export class SignInPage implements OnInit {
     });
   }
 
+ 
 }

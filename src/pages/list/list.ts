@@ -1,9 +1,8 @@
-import { CheckoutPage } from './../checkout/checkout';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the ShowcartPage page.
+ * Generated class for the ListPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,22 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-showcart',
-  templateUrl: 'showcart.html',
+  selector: 'page-list',
+  templateUrl: 'list.html',
 })
-export class ShowcartPage {
-  quantity:any;
+export class ListPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-  this.quantity=1;
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ShowcartPage');
-  }
-
-  goToCheckout(){
-    this.navCtrl.push(CheckoutPage);
+    console.log('ionViewDidLoad ListPage');
   }
 
 }
