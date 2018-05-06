@@ -1,4 +1,4 @@
-import { Camera } from '@ionic-native/camera';
+
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
@@ -16,48 +16,107 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 })
 export class AccountPage {
   account: string = "profile";
-  base64Image: any = "http://www.gravatar.com/avatar?d=mm&s=140";
+  public userProfile: any;
+  public birthDate: string;
 
+  
 
 
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public camera:Camera
+    public alertCtrl:AlertController,
+    
+    
    
   ) { }
 
-  ngAfterViewInit(){
-
+  updateName(){
+    let alert = this.alertCtrl.create({
+      message: "Your first name & last name",
+      inputs: [
+        {
+          name: 'firstName',
+          placeholder: 'Your first name',
+          value: this.userProfile.firstName
+        },
+        {
+          name: 'lastName',
+          placeholder: 'Your last name',
+          value: this.userProfile.lastName
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            this.profileData.updateName(data.firstName, data.lastName);
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
-  updatePicture(){
-    let options = {
-      quality:100,   // Specify quality in number 0-100
-      destinationType: this.camera.DestinationType.DATA_URL,
-      sourceType: this.camera.PictureSourceType.CAMERA,   // camera or gallery
-      allowEdit: true,
-      encodingType: this.camera.EncodingType.JPEG,
-      targetWidth: 100,
-      targetHeight: 100,
-      saveToPhotoAlbum: true,
-      correctOrientation:true,
-      cameraDirection: 0// BACK 0, FRONT 1
-  };
+  updateDOB(birthDate){
+    this.profileData.updateDOB(birthDate);
+  }
 
-  this.camera.getPicture(options).then((imageData) => {
-    console.log(imageData);
-    this.base64Image = 'data:image/jpeg;base64,' + imageData;
+  updateEmail(){
+    let alert = this.alertCtrl.create({
+      inputs: [
+        {
+          name: 'newEmail',
+          placeholder: 'Your new email',
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            this.profileData.updateEmail(data.newEmail, data.password);
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
 
-  }, (err) => {
-   // Handle error
-  });
-  console.log('Clicked to update picture');
-}
-
-changePassword() {
-  console.log('Clicked to change password');
-}
+  updatePassword(){
+    let alert = this.alertCtrl.create({
+      inputs: [
+        {
+          name: 'oldPassword',
+          placeholder: 'Your old password',
+          type: 'password'
+        },
+        {
+          name: 'newPassword',
+          placeholder: 'Your new password',
+          type: 'password'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            this.profileData.updatePassword(data.newPassword, data.oldPassword);
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+ 
 }
 
