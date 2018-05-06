@@ -42,29 +42,17 @@
 
               <span *ngIf="!signing">
                 <button ion-button rounded icon-right color="primary" block (click)="signin()">
-                    Sign-In <ion-icon name="arrow-dropright"></ion-icon>
+                    Sign In <ion-icon name="arrow-dropright"></ion-icon>
                 </button>
               </span>
 
               <span *ngIf="signing">
-                <button ion-button rounded color="warning" block>
-                    Signing in<ion-spinner name="dots"></ion-spinner> 
+                <button ion-button rounded color="energy" block>
+                    Please Wait  <ion-spinner name="dots"></ion-spinner> 
                 </button>
               </span>
 
-              <ion-item class="no-border">
-                  <button  (click)="stock()" ion-button round color="energy" small>Pharmacy</button>
-                  <button  (click)="search()" ion-button round color="energy" small>Search</button>
-                 
-                </ion-item>
-
-                
-                <ion-item class="no-border">
-                    <button  (click)="product()" ion-button round color="energy" small>Product</button>
-                    <button  (click)="account()" ion-button round color="energy" small>Account</button>
-
-                  </ion-item>
-
+             
             </form>
 
           </ion-list>

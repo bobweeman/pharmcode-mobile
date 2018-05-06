@@ -14,6 +14,8 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { StockPage } from '../stock/stock';
 import { ProductListPage } from '../product-list/product-list';
 import { ProductDetailPage } from '../product-detail/product-detail';
+import { AdminTabsPage } from '../admin-tabs/admin-tabs';
+import { PharmacyTabsPage } from '../pharmacy-tabs/pharmacy-tabs';
 
 
 /**
@@ -76,13 +78,19 @@ export class SignInPage implements OnInit {
   }
 
   signin(){
+      this.signing = true;
       this.buildCredentials();
       console.log(this.loginData);
       this.auth.authenticate('oauth/token',this.loginData).subscribe((data)=>{
         localStorage.setItem('jwt',data['access_token']);
         localStorage.setItem('jwt_expiry',data['expires_in']);
         localStorage.setItem('jwt_refresh',data['refresh_token']);
-        this.navCtrl.setRoot(DashboardPage);
+        setTimeout(() => {
+          this.setUserID();
+          // this.setUserAccessLevel();
+          this.signing = false;
+          this.navCtrl.setRoot(PharmacyTabsPage);
+        }, 3000);
       },error=>{
         console.log(error.status);
         if(error.status===400){
@@ -93,7 +101,8 @@ export class SignInPage implements OnInit {
             dismissOnPageChange:true,
             position:'top'
           });
-          message.present();  
+          message.present(); 
+          this.signing = false;           
         }
         if (error.status === 401) {
           console.log('yolo');
@@ -104,24 +113,36 @@ export class SignInPage implements OnInit {
             position: 'top'
           });
           message.present();
+          this.signing = false;          
         }
       });
   }
 
-  stock(){
-    this.navCtrl.push(PharmacyPage);
-  }
-
-  search(){
-    this.navCtrl.push(SearchPage);
-  }
-
-  product(){
-    this.navCtrl.push(ProductPage);
-  }
-
-  account(){
-    this.navCtrl.push(AccountPage);
+  //setting user id and access levels 
+  setUserID() {
+    this.auth.getAll('user', localStorage.getItem('token')).subscribe((response) => {
+      localStorage.setItem('logUserID', response['user']['id']);
+      setTimeout(() => {
+        if(response['user']['access_level'] === 0){
+          localStorage.setItem('logUserAccessLevel', response['user']['access_level']);
+          this.navCtrl.setRoot(DashboardPage);        
+        } else 
+        if (response['user']['access_level'] === 1){
+          localStorage.setItem('logUserAccessLevel', response['user']['access_level']);
+          this.navCtrl.setRoot(TabsPage);        
+        }else 
+        if (response['user']['access_level'] === 2){
+        localStorage.setItem('logUserAccessLevel', response['user']['access_level']);
+        this.navCtrl.setRoot(PharmacyTabsPage);        
+        }else 
+        if (response['user']['access_level'] === 3){
+          localStorage.setItem('logUserAccessLevel', response['user']['access_level']);
+          this.navCtrl.setRoot(AdminTabsPage);        
+        }
+      }, 5000);  
+    },(error) => { 
+      console.log(error);
+    });
   }
 
 }

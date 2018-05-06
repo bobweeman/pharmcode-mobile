@@ -1,3 +1,4 @@
+import { PharmacyTabsPage } from './../pages/pharmacy-tabs/pharmacy-tabs';
 import { AccountPage } from './../pages/account/account';
 import { ProductFilterPage } from './../pages/product-filter/product-filter';
 import { PopOverPage } from './../pages/pop-over/pop-over';
@@ -75,7 +76,8 @@ import { CartProvider } from '../providers/cart/cart';
     SearchPage,
     PopOverPage,
     ProductFilterPage,
-    AccountPage
+    AccountPage,
+    PharmacyTabsPage
   ],
   imports: [
     BrowserModule,
@@ -114,7 +116,8 @@ import { CartProvider } from '../providers/cart/cart';
     SearchPage,
     PopOverPage,
     ProductFilterPage,
-   AccountPage
+    AccountPage,
+    PharmacyTabsPage
   ],
   providers: [
     StatusBar,

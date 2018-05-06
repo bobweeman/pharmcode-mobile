@@ -34,13 +34,13 @@ export class StockPage {
 
   // checking if pharmacist has a pharmacy
   checkForPharmacy(){
-    this.auth.getSingle('check_pharmacy',localStorage.getItem('logUserId'),localStorage.getItem('jwt'))
+    this.auth.getSingle('check_pharmacy',localStorage.getItem('logUserID'),localStorage.getItem('jwt'))
     .subscribe((result) => {
       if (result['data'].length == 0) {
         let message = this.toaster.create({
           message: 'Please create a pharmacy to continue',
-          duration: 8000,
-          dismissOnPageChange: true,
+          duration: 5000,
+          dismissOnPageChange: false,
           position: 'top'
         });
         message.present();
@@ -59,7 +59,6 @@ export class StockPage {
     }));
   }
   
-
   getUserStock(){
     this.auth.getSingle('my_stock',localStorage.getItem('logUserId'),localStorage.getItem('jwt'))
     .subscribe((response)=>{
