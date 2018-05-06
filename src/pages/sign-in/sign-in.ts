@@ -9,6 +9,8 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { PharmacyTabsPage } from '../pharmacy-tabs/pharmacy-tabs';
 import { AdminTabsPage } from '../admin-tabs/admin-tabs';
+import { ResetPasswordPage } from '../reset-password/reset-password';
+
 
 
 /**
@@ -29,7 +31,9 @@ export class SignInPage implements OnInit {
   acc_lvl: boolean = false;
   signing: boolean = false;
 
-  constructor(private auth: AuthServiceProvider, private navCtrl:NavController, private toaster:ToastController) {
+  constructor(private auth: AuthServiceProvider, 
+    private navCtrl:NavController, 
+    private toaster:ToastController) {
 
   }
 
@@ -137,6 +141,10 @@ export class SignInPage implements OnInit {
       console.log(error);
     });
   }
+
+    goToResetPassword(){
+      this.navCtrl.push(ResetPasswordPage);
+    }
 
  
 }

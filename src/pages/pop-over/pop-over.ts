@@ -29,7 +29,6 @@ export class PopOverPage {
     public app: App,
   ) {
     this.classes  = {
-      'SettingsPage': SettingsPage,
       'SignInPage':SignInPage
       
     }
@@ -46,6 +45,7 @@ export class PopOverPage {
   
     this.viewCtrl.dismiss();
     this.app.getRootNav().push(this.classes[page]);
+  
   }
 
   
