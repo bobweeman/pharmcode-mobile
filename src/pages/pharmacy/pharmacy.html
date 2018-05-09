@@ -29,9 +29,6 @@
             <p>Please enter a valid number.</p>
       </ion-item>
 
-
-
-
       <ion-item>
         <ion-label floating>Email:</ion-label>
         <ion-input [class.invalid]="!pharmacyForm.controls.name.valid && (pharmacyForm.controls.name.dirty || submitAttempt)" 
@@ -59,11 +56,6 @@
              <p>Please enter website link to the pharmacy.</p>
        </ion-item>
       
-       
-       
-       
-       
-       
        
        <button ion-button icon-left full (click)="mapPharmacy()" *ngIf="!isLoading">
           <ion-icon name="marker"></ion-icon>

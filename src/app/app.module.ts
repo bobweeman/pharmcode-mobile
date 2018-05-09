@@ -54,7 +54,6 @@ import { BarcodeScanner} from '@ionic-native/barcode-scanner';
 
 
 
-
 @NgModule({
   declarations: [
     MyApp,

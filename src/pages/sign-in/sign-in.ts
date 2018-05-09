@@ -11,7 +11,6 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 
 
 
-
 /**
  * Generated class for the SignInPage page.
  *
@@ -74,6 +73,7 @@ export class SignInPage implements OnInit {
   }
 
   signin(){
+      this.signing = true;
       this.buildCredentials();
       console.log(this.loginData);
       this.auth.authenticate('oauth/token',this.loginData).subscribe((data)=>{
@@ -91,10 +91,11 @@ export class SignInPage implements OnInit {
             dismissOnPageChange:true,
             position:'top'
           });
-          message.present();  
+          message.present(); 
+          this.signing = false;           
         }
         if (error.status === 401) {
-          console.log('yolo');
+          console.log('Invalid Credentials');
           let message = this.toaster.create({
             message: 'Invalid username / password combination',
             duration: 8000,
@@ -102,6 +103,7 @@ export class SignInPage implements OnInit {
             position: 'top'
           });
           message.present();
+          this.signing = false;          
         }
       });
   }

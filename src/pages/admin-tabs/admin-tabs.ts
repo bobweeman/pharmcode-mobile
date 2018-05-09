@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { StockPage } from '../stock/stock';
+import { OrdersPage } from '../orders/orders';
+import { SettingsPage } from '../settings/settings';
+import { PharmPage } from '../pharm/pharm';
+import { UsersPage } from '../users/users';
+import { StatisticsPage } from '../statistics/statistics';
+import { DrugCategoryPage } from '../drug-category/drug-category';
 
 /**
  * Generated class for the AdminTabsPage page.
@@ -12,14 +19,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 @Component({
   selector: 'page-admin-tabs',
   templateUrl: 'admin-tabs.html',
+  entryComponents:[ AdminTabsPage ]
 })
 export class AdminTabsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  tab1Root = PharmPage;
+  tab2Root = DrugCategoryPage;
+  tab3Root = UsersPage;
+  tab4Root = StatisticsPage;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AdminTabsPage');
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
 }

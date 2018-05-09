@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ToastController, PopoverController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { AddStockPage } from '../add-stock/add-stock';
 import { PharmacyPage } from '../pharmacy/pharmacy';
+import { PopOverPage } from '../pop-over/pop-over';
 
 /**
  * Generated class for the StockPage page.
@@ -21,7 +22,7 @@ export class StockPage {
   stock:any;  
   showCards:boolean=false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AuthServiceProvider, private modalCtrl: ModalController, private toaster: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AuthServiceProvider, private modalCtrl: ModalController, private toaster: ToastController, public popoverCtrl:PopoverController,) {
 
     this.checkForPharmacy();
     
@@ -32,15 +33,22 @@ export class StockPage {
     this.navCtrl.push(AddStockPage);
   }
 
+  presentPopover(myEvent:Event) {
+    let popover = this.popoverCtrl.create(PopOverPage);
+    popover.present({
+      ev: myEvent
+    });
+  }
+
   // checking if pharmacist has a pharmacy
   checkForPharmacy(){
-    this.auth.getSingle('check_pharmacy',localStorage.getItem('logUserId'),localStorage.getItem('jwt'))
+    this.auth.getSingle('check_pharmacy',localStorage.getItem('logUserID'),localStorage.getItem('jwt'))
     .subscribe((result) => {
       if (result['data'].length == 0) {
         let message = this.toaster.create({
           message: 'Please create a pharmacy to continue',
-          duration: 8000,
-          dismissOnPageChange: true,
+          duration: 5000,
+          dismissOnPageChange: false,
           position: 'top'
         });
         message.present();
@@ -59,7 +67,6 @@ export class StockPage {
     }));
   }
   
-
   getUserStock(){
     this.auth.getSingle('my_stock',localStorage.getItem('logUserId'),localStorage.getItem('jwt'))
     .subscribe((response)=>{

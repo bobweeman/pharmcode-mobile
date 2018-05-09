@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, ViewController, App } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ViewController, App, ToastController } from 'ionic-angular';
 import { SettingsPage } from '../settings/settings';
 import { SignInPage } from '../sign-in/sign-in';
 
@@ -11,47 +11,35 @@ import { SignInPage } from '../sign-in/sign-in';
  */
 
 @IonicPage()
-@Component({
-  template: `
-  <ion-list>
-    <button ion-item (click)="goToPage('SignInPage')">Logout</button>
-
-    </ion-list>
-`
+@Component({ 
+  selector: 'page-pop-over',
+  templateUrl: 'pop-over.html',
 })
 export class PopOverPage {
-  classes: any;
 
-  constructor(public navCtrl: NavController, 
-    public navParams: NavParams,
-    public modalCtrl: ModalController,
-    public viewCtrl:ViewController,
-    public app: App,
-  ) {
-    this.classes  = {
-      'SignInPage':SignInPage
-      
-    }
-
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public viewCtrl:ViewController, public app: App, private toaster: ToastController) 
+  {
+   
   }
 
-  close(url: string) {
-    window.open(url, '_blank');
-    this.viewCtrl.dismiss();
+  signOut(){
+    let message = this.toaster.create({
+      message: 'You have been logged out',
+      duration: 5000,
+      dismissOnPageChange: false,
+      position: 'top'
+    });
+    message.present();
+    // remove token
+    localStorage.removeItem('jwt');
+    // remove access level
+    localStorage.removeItem('logUserAccessLevel');
+    // getout to login page
+    this.app.getRootNav().setRoot("SignInPage");
   }
 
-
- goToPage(page:any) {
-  
-    this.viewCtrl.dismiss();
-    this.app.getRootNav().push(this.classes[page]);
-  
-  }
-
-  
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PopOverPage');
-  }
+  // ionViewDidLoad() {
+  //   console.log('ionViewDidLoad PopOverPage');
+  // }
 
 }
