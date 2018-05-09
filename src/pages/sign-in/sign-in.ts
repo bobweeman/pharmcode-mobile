@@ -1,3 +1,4 @@
+import { PharmacyTabsPage } from './../pharmacy-tabs/pharmacy-tabs';
 import { CheckoutPage } from './../checkout/checkout';
 import { HomePage } from './../home/home';
 import { SignUpPage } from './../sign-up/sign-up';
@@ -79,7 +80,7 @@ export class SignInPage implements OnInit {
         localStorage.setItem('jwt',data['access_token']);
         localStorage.setItem('jwt_expiry',data['expires_in']);
         localStorage.setItem('jwt_refresh',data['refresh_token']);
-        this.navCtrl.setRoot(DashboardPage);
+        this.navCtrl.setRoot(PharmacyTabsPage);
       },error=>{
         console.log(error.status);
         if(error.status===400){
@@ -105,8 +106,6 @@ export class SignInPage implements OnInit {
       });
   }
 
-home(){
-  this.navCtrl.push(HomePage);
-}
+
  
 }

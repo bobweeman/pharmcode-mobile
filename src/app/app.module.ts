@@ -1,3 +1,4 @@
+import { PharmacyTabsPage } from './../pages/pharmacy-tabs/pharmacy-tabs';
 import { ListPage } from './../pages/list/list';
 import { WishlistPage } from './../pages/wishlist/wishlist';
 import { ScanQrcodePage } from './../pages/scan-qrcode/scan-qrcode';
@@ -86,6 +87,7 @@ import { BarcodeScanner} from '@ionic-native/barcode-scanner';
     ScanQrcodePage,
     WishlistPage,
     ListPage,
+    PharmacyTabsPage
    
   ],
   imports: [
@@ -130,6 +132,7 @@ import { BarcodeScanner} from '@ionic-native/barcode-scanner';
      ScanQrcodePage,
      WishlistPage,
      ListPage,
+     PharmacyTabsPage
     
   ],
   providers: [
