@@ -47,20 +47,20 @@ export class PharmacyPage {
     });
   }
 
-  mapPharmacy(){
-    this.isLoading=true;
-    this.geo.getCurrentPosition({ enableHighAccuracy: true }).then((location)=>{
-      setTimeout(()=>{
-        this.pharmacyData.latitude =location.coords.latitude;
-        this.pharmacyData.longitude =location.coords.longitude;
-        this.isLoading = false;       
-        this.addPharmacyMap();
-      },2000);
-    })
-  }
+    mapPharmacy(){
+      this.isLoading=true;
+      this.geo.getCurrentPosition({ enableHighAccuracy: true }).then((location)=>{
+        setTimeout(()=>{
+          this.pharmacyData.latitude =location.coords.latitude;
+          this.pharmacyData.longitude =location.coords.longitude;
+          this.isLoading = false;       
+          this.addPharmacyMap();
+        },2000);
+      })
+    }
 
-  addPharmacyMap(){
-    this.navCtrl.push("PharmacyMapPage", this.pharmacyData);
-  }
+    addPharmacyMap(){
+      this.navCtrl.push("PharmacyMapPage", this.pharmacyData);
+    }
 
 }

@@ -58,6 +58,7 @@ import { UsersPage } from '../pages/users/users';
 import { PharmPage } from '../pages/pharm/pharm';
 import { PharmDetailsPage } from '../pages/pharm-details/pharm-details';
 import { DrugCategoryPage } from '../pages/drug-category/drug-category';
+import { PharmacyMapUpdatePage } from '../pages/pharmacy-map-update/pharmacy-map-update';
 
 
 
@@ -100,7 +101,8 @@ import { DrugCategoryPage } from '../pages/drug-category/drug-category';
     UsersPage,
     PharmPage,
     PharmDetailsPage,
-    DrugCategoryPage
+    DrugCategoryPage,
+    PharmacyMapUpdatePage,
   ],
   imports: [
     BrowserModule,
@@ -151,7 +153,8 @@ import { DrugCategoryPage } from '../pages/drug-category/drug-category';
     UsersPage,
     PharmPage,
     PharmDetailsPage,
-    DrugCategoryPage
+    DrugCategoryPage,
+    PharmacyMapUpdatePage,
   ],
   providers: [
     StatusBar,

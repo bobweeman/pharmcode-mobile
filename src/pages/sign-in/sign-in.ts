@@ -83,10 +83,8 @@ export class SignInPage implements OnInit {
         localStorage.setItem('jwt_expiry',data['expires_in']);
         localStorage.setItem('jwt_refresh',data['refresh_token']);
         setTimeout(() => {
-          this.setUserID();
-          this.setUserAccessLevel();
           this.signing = false;
-          this.navCtrl.setRoot(AdminTabsPage);
+          this.navCtrl.setRoot(PharmacyTabsPage);
         }, 3000);
       },error=>{
         console.log(error.status);
@@ -115,27 +113,17 @@ export class SignInPage implements OnInit {
       });
   }
 
-  //setting user id and access levels 
-  setUserID() {
-    this.auth.getAll('user', localStorage.getItem('jwt')).subscribe((response) => {
-      localStorage.setItem('logUserId', response['user']['access_level']);  
-      console.log("User access level :" + response);
-    },(error) => { 
-      console.log(error);
-    });
-  }
 
   //put logged in user access_level in localstorage
-  setUserAccessLevel() {
-    this.auth.getSingle('user',localStorage.getItem('logUserId'),localStorage.getItem('jwt')).subscribe((response) => {
-      console.log(response['user']['access_level']);
-      // alert(response['user']['access_level']);
-      localStorage.setItem('logUserAccessLevel', response['user']['access_level']);
-      console.log(localStorage.getItem('logUserAccessLevel'));
-    },(error) => {
-      console.log(error);
-    });
-  }
+  // setUserAccessLevel() {
+  //   this.auth.getSingle('user',localStorage.getItem('logUserId'),localStorage.getItem('jwt')).subscribe((data) => {
+  //     console.log(data['users']['access_level']);
+  //     localStorage.setItem('logUserAccessLevel', data['users']['access_level']);
+  //     console.log(localStorage.getItem('logUserAccessLevel'));
+  //   },(error) => {
+  //     console.log(error);
+  //   });
+  // }
 
   goToResetPassword(){
     this.navCtrl.push(ResetPasswordPage);

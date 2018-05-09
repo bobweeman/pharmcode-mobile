@@ -16,13 +16,10 @@ import { SignInPage } from '../sign-in/sign-in';
   templateUrl: 'pop-over.html',
 })
 export class PopOverPage {
-  classes: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public viewCtrl:ViewController, public app: App, private toaster: ToastController) 
   {
-    this.classes  = {
-      'SignInPage':SignInPage
-    }
+   
   }
 
   signOut(){
@@ -41,23 +38,8 @@ export class PopOverPage {
     this.app.getRootNav().setRoot("SignInPage");
   }
 
-  // close(url: string) {
-  //   window.open(url, '_blank');
-  //   this.viewCtrl.dismiss();
+  // ionViewDidLoad() {
+  //   console.log('ionViewDidLoad PopOverPage');
   // }
-
-
-//  goToPage(page:any) {
-  
-//     this.viewCtrl.dismiss();
-//     this.app.getRootNav().push(this.classes[page]);
-  
-//   }
-
-  
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PopOverPage');
-  }
 
 }

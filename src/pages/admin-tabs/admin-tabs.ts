@@ -19,6 +19,7 @@ import { DrugCategoryPage } from '../drug-category/drug-category';
 @Component({
   selector: 'page-admin-tabs',
   templateUrl: 'admin-tabs.html',
+  entryComponents:[ AdminTabsPage ]
 })
 export class AdminTabsPage {
 
@@ -29,6 +30,5 @@ export class AdminTabsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-
 
 }

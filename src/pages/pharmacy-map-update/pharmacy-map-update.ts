@@ -5,9 +5,8 @@ import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions, CameraPositio
 import { Storage } from '@ionic/storage';
 import { AuthServiceProvider } from './../../providers/auth-service/auth-service';
 
-
 /**
- * Generated class for the PharmacyMapPage page.
+ * Generated class for the PharmacyMapUpdatePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -15,10 +14,10 @@ import { AuthServiceProvider } from './../../providers/auth-service/auth-service
 
 @IonicPage()
 @Component({
-  selector: 'page-pharmacy-map',
-  templateUrl: 'pharmacy-map.html',
+  selector: 'page-pharmacy-map-update',
+  templateUrl: 'pharmacy-map-update.html',
 })
-export class PharmacyMapPage {
+export class PharmacyMapUpdatePage {
 
   lng:number;
   lat:number;
@@ -46,7 +45,7 @@ export class PharmacyMapPage {
       this.loadMap();
 
   }
-  
+
   cancel(){
     this.viewCtrl.dismiss()
   } 
@@ -68,7 +67,7 @@ export class PharmacyMapPage {
     this.loader.present();
     this.prepareData();
     setTimeout(()=>{
-      this.auth.postStore("pharmacy",this.data,localStorage.getItem('token')).subscribe((response)=>{
+      this.auth.postUpdate("pharmacy",this.data,localStorage.getItem('token')).subscribe((response)=>{
         let message=this.toaster.create({
           message: 'Created Your Pharmacy Successfully',
           duration:8000,
@@ -129,7 +128,6 @@ export class PharmacyMapPage {
               lng: this.lng
             }
           })
-
         });
     }, 2000)
   }
