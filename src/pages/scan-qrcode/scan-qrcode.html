@@ -14,9 +14,9 @@
 
 
 <ion-content padding>
-  <button ion-button full icon-left (click)="scanCode()">
+  <!-- <button ion-button full icon-left (click)="scanCode()">
     <ion-icon name="qr-scanner"></ion-icon>Scan Code
-  </button>
+  </button> -->
    
         <ion-card *ngIf="scannedCode">
             <ion-card-content>
@@ -25,6 +25,7 @@
           
           </ion-card>
 
-          <button ion-button small round outline (click)="photoLib()" class="photoButton">Import from Gallery</button>
-  
+          <button ion-button small round outline (click)="accessGallery()" class="photoButton">Import from Gallery</button>
+          <img [src]="base64Image" *ngIf="base64Image" />
+        
         </ion-content>

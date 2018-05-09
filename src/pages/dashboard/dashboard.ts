@@ -1,3 +1,4 @@
+import { ScanQrcodePage } from './../scan-qrcode/scan-qrcode';
 import { AccountPage } from './../account/account';
 import { ShowcartPage } from './../showcart/showcart';
 import { CategoryPage } from './../category/category';
@@ -23,9 +24,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class DashboardPage {
 
   tab1Root = HomePage;
-  tab2Root = CategoryPage;
-  tab3Root = ShowcartPage;
-  tab4Root = AccountPage;
+  tab2Root = ScanQrcodePage;
+  tab3Root = CategoryPage;
+  tab4Root = ShowcartPage;
+  tab5Root = AccountPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

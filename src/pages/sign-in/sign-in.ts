@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { ResetPasswordPage } from '../reset-password/reset-password';
+
 
 
 
@@ -105,9 +105,8 @@ export class SignInPage implements OnInit {
       });
   }
 
-  goToResetPassword(){
-    this.navCtrl.push(ResetPasswordPage);
-  }
-
+home(){
+  this.navCtrl.push(HomePage);
+}
  
 }

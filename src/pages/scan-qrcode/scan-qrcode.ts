@@ -1,3 +1,4 @@
+import { Camera } from '@ionic-native/camera';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -17,11 +18,15 @@ import { PhotoLibrary } from '@ionic-native/photo-library';
 })
 export class ScanQrcodePage {
   scannedCode=null;
+  base64Image:any;
+
 
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
      private photoLibrary:PhotoLibrary,
-    private barcodeScanner:BarcodeScanner) {
+    private barcodeScanner:BarcodeScanner,
+  public camera:Camera) {
+    this.scanCode();
   }
 
   ionViewDidLoad() {
@@ -51,6 +56,17 @@ export class ScanQrcodePage {
     });
   })
   .catch(err => console.log('permissions weren\'t granted'));
+ }
+
+ accessGallery(){
+  this.camera.getPicture({
+    sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
+    destinationType: this.camera.DestinationType.DATA_URL
+   }).then((imageData) => {
+     this.base64Image = 'data:image/jpeg;base64,'+imageData;
+    }, (err) => {
+     console.log(err);
+   }); 
  }
 
 scanCode(){

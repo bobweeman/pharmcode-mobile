@@ -31,7 +31,7 @@
         <ion-item>
             <ion-label floating>Password</ion-label>
             <ion-input [class.invalid]="!signupForm.controls.password.valid && (signupForm.controls.password.dirty || submitAttempt)" 
-            type="textarea"
+            type="password"
                 formControlName="password"></ion-input>
         </ion-item>
         <ion-item *ngIf="!signupForm.controls.password.valid && signupForm.controls.password.touched">
@@ -40,7 +40,7 @@
         <ion-item>
             <ion-label floating>Confirm Password</ion-label>
             <ion-input [class.invalid]="!signupForm.controls.password.valid && (signupForm.controls.password.dirty || submitAttempt)"
-                type="textarea" formControlName="password"></ion-input>
+                type="password" formControlName="password"></ion-input>
         </ion-item>
         <!-- <ion-item *ngIf="!signupForm.controls.password.valid && signupForm.controls.password.touched && confirmKeys()">
             <p class="invalid">Passwords must be the same!</p>

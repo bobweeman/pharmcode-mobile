@@ -50,7 +50,7 @@ import { CartProvider } from '../providers/cart/cart';
 import { PhotoLibrary} from '@ionic-native/photo-library';
 import {NgxQRCodeModule} from 'ngx-qrcode2';
 import { BarcodeScanner} from '@ionic-native/barcode-scanner';
-import { ResetPasswordPage } from '../pages/reset-password/reset-password';
+
 
 
 
@@ -86,7 +86,7 @@ import { ResetPasswordPage } from '../pages/reset-password/reset-password';
     ScanQrcodePage,
     WishlistPage,
     ListPage,
-    ResetPasswordPage
+   
   ],
   imports: [
     BrowserModule,
@@ -130,7 +130,7 @@ import { ResetPasswordPage } from '../pages/reset-password/reset-password';
      ScanQrcodePage,
      WishlistPage,
      ListPage,
-     ResetPasswordPage
+    
   ],
   providers: [
     StatusBar,

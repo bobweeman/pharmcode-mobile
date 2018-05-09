@@ -54,7 +54,7 @@ export class AccountPage {
         {
           text: 'Save',
           handler: data => {
-            this.profileData.updateName(data.firstName, data.lastName);
+            // this.profileData.updateName(data.firstName, data.lastName);
           }
         }
       ]
@@ -63,7 +63,7 @@ export class AccountPage {
   }
 
   updateDOB(birthDate){
-    this.profileData.updateDOB(birthDate);
+    // this.profileData.updateDOB(birthDate);
   }
 
   updateEmail(){
@@ -81,7 +81,7 @@ export class AccountPage {
         {
           text: 'Save',
           handler: data => {
-            this.profileData.updateEmail(data.newEmail, data.password);
+            // this.profileData.updateEmail(data.newEmail, data.password);
           }
         }
       ]
@@ -110,7 +110,7 @@ export class AccountPage {
         {
           text: 'Save',
           handler: data => {
-            this.profileData.updatePassword(data.newPassword, data.oldPassword);
+            // this.profileData.updatePassword(data.newPassword, data.oldPassword);
           }
         }
       ]
