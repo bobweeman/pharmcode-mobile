@@ -84,9 +84,9 @@ export class SignInPage implements OnInit {
         localStorage.setItem('jwt_refresh',data['refresh_token']);
         setTimeout(() => {
           this.setUserID();
-          // this.setUserAccessLevel();
+          this.setUserAccessLevel();
           this.signing = false;
-          this.navCtrl.setRoot(PharmacyTabsPage);
+          this.navCtrl.setRoot(AdminTabsPage);
         }, 3000);
       },error=>{
         console.log(error.status);
@@ -102,7 +102,7 @@ export class SignInPage implements OnInit {
           this.signing = false;           
         }
         if (error.status === 401) {
-          console.log('yolo');
+          console.log('Invalid Credentials');
           let message = this.toaster.create({
             message: 'Invalid username / password combination',
             duration: 8000,
@@ -117,27 +117,22 @@ export class SignInPage implements OnInit {
 
   //setting user id and access levels 
   setUserID() {
-    this.auth.getAll('user', localStorage.getItem('token')).subscribe((response) => {
-      localStorage.setItem('logUserID', response['user']['id']);
-      setTimeout(() => {
-        if(response['user']['access_level'] === 0){
-          localStorage.setItem('logUserAccessLevel', response['user']['access_level']);
-          this.navCtrl.setRoot(DashboardPage);        
-        } else 
-        if (response['user']['access_level'] === 1){
-          localStorage.setItem('logUserAccessLevel', response['user']['access_level']);
-          this.navCtrl.setRoot(TabsPage);        
-        }else 
-        if (response['user']['access_level'] === 2){
-        localStorage.setItem('logUserAccessLevel', response['user']['access_level']);
-        this.navCtrl.setRoot(PharmacyTabsPage);        
-        }else 
-        if (response['user']['access_level'] === 3){
-          localStorage.setItem('logUserAccessLevel', response['user']['access_level']);
-          this.navCtrl.setRoot(AdminTabsPage);        
-        }
-      }, 5000);  
+    this.auth.getAll('user', localStorage.getItem('jwt')).subscribe((response) => {
+      localStorage.setItem('logUserId', response['user']['access_level']);  
+      console.log("User access level :" + response);
     },(error) => { 
+      console.log(error);
+    });
+  }
+
+  //put logged in user access_level in localstorage
+  setUserAccessLevel() {
+    this.auth.getSingle('user',localStorage.getItem('logUserId'),localStorage.getItem('jwt')).subscribe((response) => {
+      console.log(response['user']['access_level']);
+      // alert(response['user']['access_level']);
+      localStorage.setItem('logUserAccessLevel', response['user']['access_level']);
+      console.log(localStorage.getItem('logUserAccessLevel'));
+    },(error) => {
       console.log(error);
     });
   }

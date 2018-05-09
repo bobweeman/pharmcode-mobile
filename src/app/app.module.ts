@@ -52,6 +52,12 @@ import { WishlistPage } from '../pages/wishlist/wishlist';
 import { ScanQrcodePage } from '../pages/scan-qrcode/scan-qrcode';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { PharmacyTabsPage } from '../pages/pharmacy-tabs/pharmacy-tabs';
+import { StatisticsPage } from '../pages/statistics/statistics';
+import { UserDetailsPage } from '../pages/user-details/user-details';
+import { UsersPage } from '../pages/users/users';
+import { PharmPage } from '../pages/pharm/pharm';
+import { PharmDetailsPage } from '../pages/pharm-details/pharm-details';
+import { DrugCategoryPage } from '../pages/drug-category/drug-category';
 
 
 
@@ -88,7 +94,13 @@ import { PharmacyTabsPage } from '../pages/pharmacy-tabs/pharmacy-tabs';
     WishlistPage,
     ListPage,
     ResetPasswordPage,
-    PharmacyTabsPage
+    PharmacyTabsPage,
+    StatisticsPage,
+    UserDetailsPage,
+    UsersPage,
+    PharmPage,
+    PharmDetailsPage,
+    DrugCategoryPage
   ],
   imports: [
     BrowserModule,
@@ -128,12 +140,18 @@ import { PharmacyTabsPage } from '../pages/pharmacy-tabs/pharmacy-tabs';
     SearchPage,
     PopOverPage,
     ProductFilterPage,
-     AccountPage,
-     ScanQrcodePage,
-     WishlistPage,
-     ListPage,
-     ResetPasswordPage,
-     PharmacyTabsPage
+    AccountPage,
+    ScanQrcodePage,
+    WishlistPage,
+    ListPage,
+    ResetPasswordPage,
+    PharmacyTabsPage,
+    StatisticsPage,
+    UserDetailsPage,
+    UsersPage,
+    PharmPage,
+    PharmDetailsPage,
+    DrugCategoryPage
   ],
   providers: [
     StatusBar,
