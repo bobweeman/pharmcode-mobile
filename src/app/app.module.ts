@@ -1,3 +1,4 @@
+import { ProfilePage } from './../pages/profile/profile';
 import { PharmacyTabsPage } from './../pages/pharmacy-tabs/pharmacy-tabs';
 import { ListPage } from './../pages/list/list';
 import { WishlistPage } from './../pages/wishlist/wishlist';
@@ -51,6 +52,7 @@ import { CartProvider } from '../providers/cart/cart';
 import { PhotoLibrary} from '@ionic-native/photo-library';
 import {NgxQRCodeModule} from 'ngx-qrcode2';
 import { BarcodeScanner} from '@ionic-native/barcode-scanner';
+import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 
 
 
@@ -86,7 +88,9 @@ import { BarcodeScanner} from '@ionic-native/barcode-scanner';
     ScanQrcodePage,
     WishlistPage,
     ListPage,
-    PharmacyTabsPage
+    PharmacyTabsPage,
+    ResetPasswordPage,
+    ProfilePage
    
   ],
   imports: [
@@ -131,7 +135,9 @@ import { BarcodeScanner} from '@ionic-native/barcode-scanner';
      ScanQrcodePage,
      WishlistPage,
      ListPage,
-     PharmacyTabsPage
+     PharmacyTabsPage,
+     ResetPasswordPage,
+     ProfilePage
     
   ],
   providers: [

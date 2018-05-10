@@ -50,8 +50,12 @@
                 </button>
               </span>
               
-            
-          
+              <!-- <button ion-button round color="energy"(click)="home()">Home</button> -->
+
+              <ion-row class="goToResetPassword animated headShake infinite">
+                  <button ion-button color="primary" clear (click)="goToResetPassword()" class="forgot-password">Forgot Password?</button>
+             </ion-row>
+
              
 
             </form>
@@ -61,7 +65,7 @@
         </ion-col>
       </ion-row>
       <ion-row class="signup animated pulse infinite">
-           <button ion-button color="energy" (click)="signUp()">Sign-up</button>
+           <button ion-button color="energy" (click)="signUp()" >Sign-up</button>
       </ion-row>
     </ion-grid>
 

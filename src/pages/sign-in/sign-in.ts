@@ -1,3 +1,5 @@
+import { AdminTabsPage } from './../admin-tabs/admin-tabs';
+import { ProfilePage } from './../profile/profile';
 import { PharmacyTabsPage } from './../pharmacy-tabs/pharmacy-tabs';
 import { CheckoutPage } from './../checkout/checkout';
 import { HomePage } from './../home/home';
@@ -8,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { ResetPasswordPage } from '../reset-password/reset-password';
 
 
 
@@ -80,7 +83,7 @@ export class SignInPage implements OnInit {
         localStorage.setItem('jwt',data['access_token']);
         localStorage.setItem('jwt_expiry',data['expires_in']);
         localStorage.setItem('jwt_refresh',data['refresh_token']);
-        this.navCtrl.setRoot(PharmacyTabsPage);
+        this.navCtrl.setRoot(AdminTabsPage);
       },error=>{
         console.log(error.status);
         if(error.status===400){
@@ -108,6 +111,15 @@ export class SignInPage implements OnInit {
       });
   }
 
-
+home(){
+  this.navCtrl.push(DashboardPage);
+}
  
+goToResetPassword() {
+  this.navCtrl.push(ResetPasswordPage);
+}
+
+profile(){
+  this.navCtrl.push(ProfilePage);
+}
 }

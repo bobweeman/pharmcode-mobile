@@ -95,7 +95,25 @@
         </div>
     
         <div padding-top text-center *ngSwitchCase="'orders'" >
-          
+            <!-- <div ng-if="isLoadingOrderHistoryList" style="margin-top: 20%; margin-left: 50%;">
+                <ion-spinner icon="spiral"></ion-spinner>
+              </div> -->
+              <div ng-if="!orderHistoryList && !isLoadingOrderHistoryList" class="alert-empty-cart ion-alert-circled">
+                <br/>
+                <br/>No order history
+                <hr/>
+              </div>
+              <div ng-if="orderHistoryList && !isLoadingOrderHistoryList" class="list card">
+                <div class="item" ng-repeat="order in orderHistoryList">
+                  <p><strong>Order reference : </strong>order.reference</p>
+                  <p><strong>'Date' : </strong>order.date_add</p>
+                  <p><strong>'Total price' : </strong>$order.total_paid| number:2}}</p>
+                  <p><strong>'Payment' : </strong>order.payment</p>
+                  <p style="background-color:orderState[ordercurrent_state-1]color}}; color:white; font-weight:bold;">
+                    <strong>translation['Status'] : </strong>orderState[order.current_state-1].name
+                  </p>
+                </div>
+              </div>
         </div>
     
         <div padding-top text-center *ngSwitchCase="'wallet'">
