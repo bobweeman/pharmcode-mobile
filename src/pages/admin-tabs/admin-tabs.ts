@@ -7,6 +7,7 @@ import { PharmPage } from '../pharm/pharm';
 import { UsersPage } from '../users/users';
 import { StatisticsPage } from '../statistics/statistics';
 import { DrugCategoryPage } from '../drug-category/drug-category';
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
 /**
  * Generated class for the AdminTabsPage page.
@@ -28,7 +29,34 @@ export class AdminTabsPage {
   tab3Root = UsersPage;
   tab4Root = StatisticsPage;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  pharmcount: any;
+  usercount: any;
+  categorycount: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AuthServiceProvider) {
   }
+
+  // setting pharmacy Count
+  setPharmacyCount() {
+    setTimeout(() => {
+      this.pharmcount = localStorage.getItem('pharmacyCount');
+    }, 6000)
+  }
+
+  // setting user Count
+  setUserCount() {
+    setTimeout(() => {
+      this.usercount = localStorage.getItem('userCount');
+    }, 6000)
+  }
+
+  // setting categories Count
+  setCategoryCount() {
+    setTimeout(() => {
+      this.categorycount = localStorage.getItem('categoryCount');
+    }, 6000)
+  }
+
+  
 
 }

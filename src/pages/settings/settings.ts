@@ -101,7 +101,4 @@ export class SettingsPage {
       },2000);
     })
   }
-
-  
-
 }

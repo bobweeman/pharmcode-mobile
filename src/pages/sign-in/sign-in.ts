@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { PharmacyTabsPage } from '../pharmacy-tabs/pharmacy-tabs';
 import { AdminTabsPage } from '../admin-tabs/admin-tabs';
 import { ResetPasswordPage } from '../reset-password/reset-password';
 
@@ -30,7 +29,9 @@ export class SignInPage implements OnInit {
   response: any;
   acc_lvl: boolean = false;
   signing: boolean = false;
-
+  data={
+      email:''
+  }
   constructor(private auth: AuthServiceProvider, 
     private navCtrl:NavController, 
     private toaster:ToastController) {
@@ -84,7 +85,7 @@ export class SignInPage implements OnInit {
         localStorage.setItem('jwt_refresh',data['refresh_token']);
         setTimeout(() => {
           this.signing = false;
-          this.navCtrl.setRoot(PharmacyTabsPage);
+          this.setUserAccessLevel();
         }, 3000);
       },error=>{
         console.log(error.status);
@@ -114,16 +115,24 @@ export class SignInPage implements OnInit {
   }
 
 
-  //put logged in user access_level in localstorage
-  // setUserAccessLevel() {
-  //   this.auth.getSingle('user',localStorage.getItem('logUserId'),localStorage.getItem('jwt')).subscribe((data) => {
-  //     console.log(data['users']['access_level']);
-  //     localStorage.setItem('logUserAccessLevel', data['users']['access_level']);
-  //     console.log(localStorage.getItem('logUserAccessLevel'));
-  //   },(error) => {
-  //     console.log(error);
-  //   });
-  // }
+  setUserAccessLevel(){
+    this.data.email=this.loginData.username;
+    this.auth.postStore('access_level',this.data , localStorage.getItem('jwt')).subscribe((response) => {
+      localStorage.setItem('logUserAccessLevel',response['data']['access_level']);
+      localStorage.setItem('logUserID',response['data']['id']);
+      if(response['data']['access_level'] === '0'){
+        this.navCtrl.setRoot("DashboardPage");
+      }else 
+      if(response['data']['access_level'] === '1'){
+        this.navCtrl.setRoot("PharmacyTabsPage");
+      }
+      else{
+        this.navCtrl.setRoot("AdminTabsPage");
+      }
+    },(error) => {
+      console.log(error);
+    });
+  }
 
   goToResetPassword(){
     this.navCtrl.push(ResetPasswordPage);

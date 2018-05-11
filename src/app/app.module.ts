@@ -59,6 +59,9 @@ import { PharmPage } from '../pages/pharm/pharm';
 import { PharmDetailsPage } from '../pages/pharm-details/pharm-details';
 import { DrugCategoryPage } from '../pages/drug-category/drug-category';
 import { PharmacyMapUpdatePage } from '../pages/pharmacy-map-update/pharmacy-map-update';
+import { HttpModule } from '@angular/http';
+import { AdminTabsPage } from '../pages/admin-tabs/admin-tabs';
+
 
 
 
@@ -103,6 +106,8 @@ import { PharmacyMapUpdatePage } from '../pages/pharmacy-map-update/pharmacy-map
     PharmDetailsPage,
     DrugCategoryPage,
     PharmacyMapUpdatePage,
+    
+  
   ],
   imports: [
     BrowserModule,
@@ -112,7 +117,8 @@ import { PharmacyMapUpdatePage } from '../pages/pharmacy-map-update/pharmacy-map
       apiKey: 'AIzaSyBJqs9qxDAaSBRcl1i9Ot8hJNbRSyIyPWk'
     }),
     BrowserAnimationsModule,
-    NgxQRCodeModule
+    NgxQRCodeModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -155,6 +161,7 @@ import { PharmacyMapUpdatePage } from '../pages/pharmacy-map-update/pharmacy-map
     PharmDetailsPage,
     DrugCategoryPage,
     PharmacyMapUpdatePage,
+     
   ],
   providers: [
     StatusBar,
@@ -169,6 +176,7 @@ import { PharmacyMapUpdatePage } from '../pages/pharmacy-map-update/pharmacy-map
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthServiceProvider,
     CartProvider,
+    HttpModule
     
   ]
 })
