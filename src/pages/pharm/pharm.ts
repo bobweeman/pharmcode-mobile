@@ -55,4 +55,6 @@ export class PharmPage {
     },5000)
   }
 
+  // getting pharmacy list
+
 }
