@@ -1,0 +1,71 @@
+<!--
+  Generated template for the CategoryDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{category?.name}} Catogory</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <span *ngIf="showSpinner">
+        <ion-spinner class="showSpinner" name="dots"></ion-spinner>
+      </span>
+  
+      <div *ngIf="showCards" >
+          <ion-list *ngFor="let item of usernames" class="clear" >
+              <ion-card>
+      
+          <ion-item-sliding class="bordered">
+            <ion-item class="clear">
+                <ion-thumbnail item-start>
+  
+                    <span *ngIf="hasProfilePic">
+                      <img class="search-image" src="{{liveServerUrl}}storage/{{item?.user_details?.picture}}">   
+                    </span>
+                    <span  *ngIf="!hasProfilePic">
+                        <img class="search-image" src="./assests/imgs/avatar.jpg">
+                    </span>
+              
+                </ion-thumbnail>
+                <h1>{{item?.username}}</h1>
+                <p>{{item?.surname}}  {{item?.othernames}}</p>
+            </ion-item>
+  
+            <ion-item-options side="left">
+              <button ion-button (click)='addToFavorites(item?.id)' color="secondary">
+                <ion-icon name="star"></ion-icon>
+                 Star
+              </button>
+            </ion-item-options>
+  
+            <ion-item-options side="right">
+                <button ion-button  (click)='viewUser(item?.id)' color="primary">
+                  <ion-icon name="eye" *ngIf="!showViewSpinner" ></ion-icon> 
+                  <span *ngIf="showViewSpinner">
+                    <ion-spinner class="showDetailsSpinner" name="dots"></ion-spinner>
+                  </span>
+                  View
+                </button>
+  
+                <button ion-button  (click)='chatUser(item?.id)' color="secondary">
+                    <ion-icon name="chatbubbles" *ngIf="!showViewSpinner" ></ion-icon> 
+                    <span *ngIf="showViewSpinner">
+                      <ion-spinner class="showDetailsSpinner" name="crescent"></ion-spinner>
+                    </span>
+                    Chat
+                </button>
+            </ion-item-options>
+          </ion-item-sliding>
+          </ion-card>
+        </ion-list>
+      </div>  
+
+</ion-content>

@@ -4,7 +4,7 @@ import { SignUpPage } from './../sign-up/sign-up';
 import { DashboardPage } from './../dashboard/dashboard';
 import { TabsPage } from './../tabs/tabs';
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, ToastController, LoadingController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { AdminTabsPage } from '../admin-tabs/admin-tabs';
@@ -32,15 +32,17 @@ export class SignInPage implements OnInit {
   data={
       email:''
   }
+  loading: any;
+
   constructor(private auth: AuthServiceProvider, 
     private navCtrl:NavController, 
-    private toaster:ToastController) {
+    private toaster:ToastController,
+    private loadingCtrl: LoadingController) {
 
   }
 
   ngOnInit(){
   }
-
 
   // creating a sign in form
   public loginForm = new FormGroup({
@@ -55,8 +57,7 @@ export class SignInPage implements OnInit {
     this.navCtrl.push(SignUpPage);
   }
 
-
- 
+  // getting user form data
   loginData={
    
       username: '',
@@ -69,16 +70,22 @@ export class SignInPage implements OnInit {
    
   }
 
+  // setting form credentials
   buildCredentials(){
     this.loginData.username = this.loginForm.controls['email'].value;
     this.loginData.password = this.loginForm.controls['password'].value;
 
   }
 
+  // sigining in using user credentials
   signin(){
       this.signing = true;
       this.buildCredentials();
       console.log(this.loginData);
+      this.loading =this.loadingCtrl.create({
+        content:"Seting Up Environment..."
+      });
+      this.loading.present();
       this.auth.authenticate('oauth/token',this.loginData).subscribe((data)=>{
         localStorage.setItem('jwt',data['access_token']);
         localStorage.setItem('jwt_expiry',data['expires_in']);
@@ -86,11 +93,13 @@ export class SignInPage implements OnInit {
         setTimeout(() => {
           this.signing = false;
           this.setUserAccessLevel();
-        }, 3000);
+          this.loading.dismissAll();
+        }, 5000);
       },error=>{
         console.log(error.status);
         if(error.status===400){
           console.log('Unauthorized');
+          this.loading.dismissAll();
           let message=this.toaster.create({
             message: 'Please fill the form',
             duration:8000,
@@ -102,9 +111,10 @@ export class SignInPage implements OnInit {
         }
         if (error.status === 401) {
           console.log('Invalid Credentials');
+          this.loading.dismissAll();
           let message = this.toaster.create({
             message: 'Invalid username / password combination',
-            duration: 8000,
+            duration: 5000,
             dismissOnPageChange: true,
             position: 'top'
           });
@@ -115,6 +125,7 @@ export class SignInPage implements OnInit {
   }
 
 
+  // getting and setting user access levels
   setUserAccessLevel(){
     this.data.email=this.loginData.username;
     this.auth.postStore('access_level',this.data , localStorage.getItem('jwt')).subscribe((response) => {
@@ -134,6 +145,7 @@ export class SignInPage implements OnInit {
     });
   }
 
+  // get to reset password page
   goToResetPassword(){
     this.navCtrl.push(ResetPasswordPage);
   }
