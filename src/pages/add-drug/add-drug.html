@@ -7,12 +7,31 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>add-drug</ion-title>
+    <ion-title>Create New Category</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  
+    <form [formGroup]='addCategoryForm'>
+        
+        <ion-item>
+          <ion-label floating>Category Name:</ion-label>
+          <ion-input [class.invalid]="!addCategoryForm.controls.name.valid && (addCategoryForm.controls.name.dirty || submitAttempt)" 
+          type="text" formControlName="name"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!addCategoryForm.controls.name.valid  && (addCategoryForm.controls.name.dirty || submitAttempt)">
+              <p>Please enter the name of the new Category.</p>
+        </ion-item>
+         
+         <button ion-button icon-left full (click)="addCategory()" *ngIf="!isLoading">
+            <ion-icon name="add-circle"></ion-icon>
+            Save
+         </button>
+          <button ion-button icon-left full *ngIf="isLoading">
+            Saving Category     <ion-spinner name="dots"></ion-spinner>
+          </button>
+    </form>
 </ion-content>

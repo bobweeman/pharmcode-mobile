@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, ModalController, ViewController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { AddDrugPage } from '../add-drug/add-drug';
 
@@ -23,7 +23,8 @@ export class DrugCategoryPage {
   showViewSpinner: boolean = false;
   data: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private auth:AuthServiceProvider, private modalCtrl: ModalController, private toaster : ToastController) {
+  
+  constructor(public navCtrl: NavController, public navParams: NavParams, private auth:AuthServiceProvider, private modalCtrl: ModalController, private toaster : ToastController, public viewCtrl:ViewController) {
 
     // calling category function
     this.getCategories();
@@ -32,11 +33,10 @@ export class DrugCategoryPage {
 
   // admin can add a category
   addCategory(){
-    this.showViewSpinner =true;
     let modal=this.modalCtrl.create(AddDrugPage);
-    this.showViewSpinner=false;
     modal.present();
   }
+
   
   // getting all drug categories in the database
   getCategories(){

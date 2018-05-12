@@ -52,7 +52,7 @@ export class PharmacyMapPage {
   } 
 
   prepareData(){
-    this.data.user_id = localStorage.getItem('logUserId');    
+    this.data.user_id = localStorage.getItem('logUserID');    
     this.data.pharm_name = this.navParams.data.pharm_name;
     this.data.phone = this.navParams.data.phone;
     this.data.email = this.navParams.data.email;
@@ -63,7 +63,7 @@ export class PharmacyMapPage {
 }
   saveWorkLocation(){
     this.loader = this.loadingCtrl.create({
-      content:"Saving this as Pharmacy Location"
+      content:"Saving Pharmacy Location"
     });
     this.loader.present();
     this.prepareData();
