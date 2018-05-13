@@ -57,7 +57,7 @@ export class SignInPage implements OnInit {
       username: '',
       password: '',
       client_id: '2',
-      client_secret: 'TwAWweYlVbXBnGjnzsg4YJvIcsKa20CJ8Yu8STG2',
+      client_secret: '7MPnX2a8a7Gnghb3uJxx9AiEv9hBWbyLwNTI3yXF',
       grant_type:'password',
       scope:'*'
     
@@ -144,6 +144,10 @@ export class SignInPage implements OnInit {
   // get to reset password page
   goToResetPassword(){
     this.navCtrl.push("ResetPasswordPage");
+  }
+
+  azaaa(){
+    this.navCtrl.push("PharmacyMapPage");
   }
  
 }

@@ -22,10 +22,9 @@ export class StockPage {
   stock:any;  
   showCards:boolean=false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AuthServiceProvider, private modalCtrl: ModalController, private toaster: ToastController, public popoverCtrl:PopoverController,) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AuthServiceProvider, private modalCtrl: ModalController, private toaster: ToastController, public popoverCtrl:PopoverController) {
 
-    this.checkForPharmacy();
-    
+      this.getUserStock();    
   }
 
   // stocking shop page
@@ -40,32 +39,7 @@ export class StockPage {
     });
   }
 
-  // checking if pharmacist has a pharmacy
-  checkForPharmacy(){
-    this.auth.getSingle('check_pharmacy',localStorage.getItem('logUserID'),localStorage.getItem('jwt'))
-    .subscribe((result) => {
-      if (result['data'].length == 0) {
-        let message = this.toaster.create({
-          message: 'Please create a pharmacy to continue',
-          duration: 5000,
-          dismissOnPageChange: false,
-          position: 'top'
-        });
-        message.present();
-        this.navCtrl.push(PharmacyPage);
-      } else {
-        this.getUserStock();
-      }
-    },(error =>{
-        let message = this.toaster.create({
-        message: 'Service not available',
-        duration: 8000,
-        dismissOnPageChange: true,
-        position: 'top'
-      });
-      message.present();
-    }));
-  }
+ 
   
   getUserStock(){
     this.auth.getSingle('my_stock',localStorage.getItem('logUserId'),localStorage.getItem('jwt'))

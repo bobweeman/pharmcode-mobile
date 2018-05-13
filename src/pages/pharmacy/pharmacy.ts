@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams, ModalController, Loading, LoadingC
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthServiceProvider } from './../../providers/auth-service/auth-service';
 import { Geolocation } from '@ionic-native/geolocation';
-import { PharmacyMapPage } from '../pharmacy-map/pharmacy-map';
 import { PharmacyMapUpdatePage } from '../pharmacy-map-update/pharmacy-map-update';
 
 
@@ -28,7 +27,7 @@ export class PharmacyPage {
     address:"",
     website_url:"",
     longitude:0,
-    latitude:0,
+    latitude:0
   }
 
   loader:Loading;
@@ -61,7 +60,7 @@ export class PharmacyPage {
     }
 
     addPharmacyMap(){
-      this.navCtrl.push(PharmacyMapPage, this.pharmacyData);
+      this.navCtrl.push("PharmacyMapPage", this.pharmacyData);
     }
 
 }

@@ -10,8 +10,6 @@ import { MyCartPage } from './../pages/my-cart/my-cart';
 import { ProductListPage } from './../pages/product-list/product-list';
 import { ProductDetailPage } from './../pages/product-detail/product-detail';
 import { TutorialPage } from './../pages/tutorial/tutorial';
-import { PharmacyPage } from './../pages/pharmacy/pharmacy';
-import { PharmacyMapPage } from './../pages/pharmacy-map/pharmacy-map';
 import { OrdersPage } from './../pages/orders/orders';
 import { StockPage } from './../pages/stock/stock';
 import { AddStockPage } from './../pages/add-stock/add-stock';
@@ -76,8 +74,6 @@ import { AdminTabsPage } from '../pages/admin-tabs/admin-tabs';
     OrdersPage,
     SettingsPage,
     AddStockPage,
-    PharmacyPage,
-    PharmacyMapPage,
     TutorialPage,
     ProductDetailPage,
     ProductListPage,
@@ -128,8 +124,6 @@ import { AdminTabsPage } from '../pages/admin-tabs/admin-tabs';
     OrdersPage,
     SettingsPage,
     AddStockPage,
-    PharmacyPage,
-    PharmacyMapPage,
     TutorialPage,
     ProductDetailPage,
     ProductListPage,
