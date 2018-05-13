@@ -15,7 +15,6 @@ import { PharmacyMapPage } from './../pages/pharmacy-map/pharmacy-map';
 import { OrdersPage } from './../pages/orders/orders';
 import { StockPage } from './../pages/stock/stock';
 import { AddStockPage } from './../pages/add-stock/add-stock';
-import { DashboardPage } from './../pages/dashboard/dashboard';
 import { WelcomePage } from './../pages/welcome/welcome';
 import { SignInPage } from './../pages/sign-in/sign-in';
 import { NgModule, ErrorHandler } from '@angular/core';
@@ -50,8 +49,6 @@ import { BarcodeScanner} from '@ionic-native/barcode-scanner';
 import { ListPage } from '../pages/list/list';
 import { WishlistPage } from '../pages/wishlist/wishlist';
 import { ScanQrcodePage } from '../pages/scan-qrcode/scan-qrcode';
-import { ResetPasswordPage } from '../pages/reset-password/reset-password';
-import { PharmacyTabsPage } from '../pages/pharmacy-tabs/pharmacy-tabs';
 import { StatisticsPage } from '../pages/statistics/statistics';
 import { UserDetailsPage } from '../pages/user-details/user-details';
 import { UsersPage } from '../pages/users/users';
@@ -75,7 +72,6 @@ import { AdminTabsPage } from '../pages/admin-tabs/admin-tabs';
     SignInPage,
     SignUpPage,
     WelcomePage,
-    DashboardPage,
     StockPage,
     OrdersPage,
     SettingsPage,
@@ -97,8 +93,6 @@ import { AdminTabsPage } from '../pages/admin-tabs/admin-tabs';
     ScanQrcodePage,
     WishlistPage,
     ListPage,
-    ResetPasswordPage,
-    PharmacyTabsPage,
     StatisticsPage,
     UserDetailsPage,
     UsersPage,
@@ -130,7 +124,6 @@ import { AdminTabsPage } from '../pages/admin-tabs/admin-tabs';
     SignInPage,
     SignUpPage,
     WelcomePage,
-    DashboardPage,
     StockPage,
     OrdersPage,
     SettingsPage,
@@ -152,8 +145,6 @@ import { AdminTabsPage } from '../pages/admin-tabs/admin-tabs';
     ScanQrcodePage,
     WishlistPage,
     ListPage,
-    ResetPasswordPage,
-    PharmacyTabsPage,
     StatisticsPage,
     UserDetailsPage,
     UsersPage,

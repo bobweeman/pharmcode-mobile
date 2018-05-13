@@ -1,14 +1,8 @@
-import { CheckoutPage } from './../checkout/checkout';
-import { HomePage } from './../home/home';
 import { SignUpPage } from './../sign-up/sign-up';
-import { DashboardPage } from './../dashboard/dashboard';
-import { TabsPage } from './../tabs/tabs';
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, ToastController, LoadingController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { AdminTabsPage } from '../admin-tabs/admin-tabs';
-import { ResetPasswordPage } from '../reset-password/reset-password';
 
 
 
@@ -63,7 +57,7 @@ export class SignInPage implements OnInit {
       username: '',
       password: '',
       client_id: '2',
-      client_secret: 'RzMJcxfZL0SpUVLjcA1EDiuTCxa7LuRCYlnGrJDf',
+      client_secret: 'TwAWweYlVbXBnGjnzsg4YJvIcsKa20CJ8Yu8STG2',
       grant_type:'password',
       scope:'*'
     
@@ -129,12 +123,13 @@ export class SignInPage implements OnInit {
   setUserAccessLevel(){
     this.data.email=this.loginData.username;
     this.auth.postStore('access_level',this.data , localStorage.getItem('jwt')).subscribe((response) => {
+      console.log(response['data']['access_level']);
       localStorage.setItem('logUserAccessLevel',response['data']['access_level']);
       localStorage.setItem('logUserID',response['data']['id']);
-      if(response['data']['access_level'] === '0'){
+      if(response['data']['access_level'] == 0){
         this.navCtrl.setRoot("DashboardPage");
       }else 
-      if(response['data']['access_level'] === '1'){
+      if(response['data']['access_level'] == 1){
         this.navCtrl.setRoot("PharmacyTabsPage");
       }
       else{
@@ -143,12 +138,12 @@ export class SignInPage implements OnInit {
     },(error) => {
       console.log(error);
     });
-    console.log("User Access Level : " + localStorage.getItem('logUserAccessLevel'));
+   
   }
 
   // get to reset password page
   goToResetPassword(){
-    this.navCtrl.push(ResetPasswordPage);
+    this.navCtrl.push("ResetPasswordPage");
   }
  
 }
