@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{category?.name}} Catogory</ion-title>
+    <ion-title>{{category?.name}} Category</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -20,47 +20,36 @@
       </span>
   
       <div *ngIf="showCards" >
-          <ion-list *ngFor="let item of usernames" class="clear" >
+          <ion-list *ngFor="let item of drugs" class="clear" >
               <ion-card>
       
           <ion-item-sliding class="bordered">
             <ion-item class="clear">
                 <ion-thumbnail item-start>
   
-                    <span *ngIf="hasProfilePic">
-                      <img class="search-image" src="{{liveServerUrl}}storage/{{item?.user_details?.picture}}">   
+                    <span>
+                      <img class="drug-image" src="{{liveServerUrl}}storage/{{item?.drug_details?.image_url}}">   
                     </span>
-                    <span  *ngIf="!hasProfilePic">
-                        <img class="search-image" src="./assests/imgs/avatar.jpg">
-                    </span>
-              
+                    
                 </ion-thumbnail>
-                <h1>{{item?.username}}</h1>
-                <p>{{item?.surname}}  {{item?.othernames}}</p>
+                <h1>{{item?.name}}</h1>
+                <p>{{item?.type}}</p>
+                <p>{{item?.drug_category}}</p>
+                <p>{{item?.composition}}</p>
+                <p>{{item?.description}}</p>
+                <p>{{item?.dosage}}</p>
+                <p>{{item?.expiration}}</p>
             </ion-item>
   
-            <ion-item-options side="left">
-              <button ion-button (click)='addToFavorites(item?.id)' color="secondary">
-                <ion-icon name="star"></ion-icon>
-                 Star
-              </button>
-            </ion-item-options>
+           
   
             <ion-item-options side="right">
-                <button ion-button  (click)='viewUser(item?.id)' color="primary">
+                <button ion-button  (click)='delete(item?.id)' color="primary">
                   <ion-icon name="eye" *ngIf="!showViewSpinner" ></ion-icon> 
                   <span *ngIf="showViewSpinner">
                     <ion-spinner class="showDetailsSpinner" name="dots"></ion-spinner>
                   </span>
-                  View
-                </button>
-  
-                <button ion-button  (click)='chatUser(item?.id)' color="secondary">
-                    <ion-icon name="chatbubbles" *ngIf="!showViewSpinner" ></ion-icon> 
-                    <span *ngIf="showViewSpinner">
-                      <ion-spinner class="showDetailsSpinner" name="crescent"></ion-spinner>
-                    </span>
-                    Chat
+                  Delete
                 </button>
             </ion-item-options>
           </ion-item-sliding>
