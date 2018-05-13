@@ -44,8 +44,8 @@
            
   
             <ion-item-options side="right">
-                <button ion-button  (click)='delete(item?.id)' color="primary">
-                  <ion-icon name="eye" *ngIf="!showViewSpinner" ></ion-icon> 
+                <button ion-button  (click)='delete(item?.id)' color="danger">
+                  <ion-icon name="trash" *ngIf="!showViewSpinner" ></ion-icon> 
                   <span *ngIf="showViewSpinner">
                     <ion-spinner class="showDetailsSpinner" name="dots"></ion-spinner>
                   </span>
