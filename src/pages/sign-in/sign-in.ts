@@ -143,6 +143,7 @@ export class SignInPage implements OnInit {
     },(error) => {
       console.log(error);
     });
+    console.log("User Access Level : " + localStorage.getItem('logUserAccessLevel'));
   }
 
   // get to reset password page
